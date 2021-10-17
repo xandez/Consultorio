@@ -14,11 +14,11 @@ class ProcedimentoController{
 		ConexaoBD::conectar();
 	
 		$procedimento = new Procedimento();
-		$procedimento->set('nome',strtoupper($_POST['etnome']));
+		$procedimento->set('nome',mb_strtoupper($_POST['etnome']),'UTF-8');
 		$procedimento->set('valor',number_format($_POST['etvalor'],2,'.',','));
 		$procedimento->set('valmin',number_format($_POST['etvalmin'],2,'.',','));
 		$procedimento->set('valmax',number_format($_POST['etvalmax'],2,'.',','));
-		$procedimento->set('especialidade',strtoupper($_POST['etespec']));
+		$procedimento->set('especialidade',mb_strtoupper($_POST['etespec']),'UTF-8');
 		$procedimento->set('custo',number_format($_POST['etcusto'],2,'.',','));
 
 		if ($procedimento->cadastrarProcedimento()) {
@@ -35,7 +35,7 @@ class ProcedimentoController{
 		ConexaoBD::conectar();
 
 		$procedimento = new Procedimento();
-		$procedimento->set('nome',strtoupper($nome));
+		$procedimento->set('nome',mb_strtoupper($nome),'UTF-8');
 		$procedimento->set('id',$id);
 
 		$dados = $procedimento->buscarProcedimento();
@@ -55,11 +55,11 @@ class ProcedimentoController{
 
 		$procedimento = new Procedimento();
 		$procedimento->set('id',$_POST['etcod']);
-		$procedimento->set('nome',strtoupper($_POST['etnome']));
+		$procedimento->set('nome',mb_strtoupper($_POST['etnome']),'UTF-8');
 		$procedimento->set('valor',number_format($_POST['etvalor'],2,'.',','));
 		$procedimento->set('valmin',number_format($_POST['etvalmin'],2,'.',','));
 		$procedimento->set('valmax',number_format($_POST['etvalmax'],2,'.',','));
-		$procedimento->set('especialidade',strtoupper($_POST['etespec']));
+		$procedimento->set('especialidade',mb_strtoupper($_POST['etespec']),'UTF-8');
 		$procedimento->set('custo',number_format($_POST['etcusto'],2,'.',','));
 
 		if($procedimento->editarProcedimento()){

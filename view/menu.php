@@ -37,10 +37,11 @@
     <div class="row">
       <div class="col-2">
         <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item list-group-item-action active" id="list-inicio-list" data-bs-toggle="list" href="#list-inicio" role="tab" aria-controls="list-home">Inicio</a>
+          <a class="list-group-item list-group-item-action active" id="list-inicio-list" data-bs-toggle="list" href="#list-inicio" role="tab" aria-controls="list-home">Início</a>
           <a class="list-group-item list-group-item-action" id="list-agenda-list" data-bs-toggle="list" href="#list-agenda" role="tab" aria-controls="list-agenda">Agenda</a>
           <a class="list-group-item list-group-item-action" id="list-paciente-list" data-bs-toggle="list" href="#list-paciente" role="tab" aria-controls="list-paciente">Pacientes</a>
           <a class="list-group-item list-group-item-action" id="list-procedimento-list" data-bs-toggle="list" href="#list-procedimento" role="tab" aria-controls="list-procedimento">Procedimentos</a>
+          <a class="list-group-item list-group-item-action" id="list-funcionario-list" data-bs-toggle="list" href="#list-funcionario" role="tab" aria-controls="list-funcionario">Funcionários</a>
           
         </div>
       </div>
@@ -55,6 +56,9 @@
           </div>
           <div class="tab-pane fade" id="list-agenda" role="tabpanel" aria-labelledby="list-agenda-list">
             <iframe name="frameagen" height="1200" width="100%" src="selecaoDentista.php"></iframe>
+          </div>
+          <div class="tab-pane fade" id="list-funcionario" role="tabpanel" aria-labelledby="list-funcionario-list">
+            <iframe name="framefuncionario" height="1200" width="100%" src="novofuncionario.php"></iframe>
           </div>
         </div>
       </div>

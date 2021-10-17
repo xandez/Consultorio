@@ -13,22 +13,22 @@ class PacienteController{
 		ConexaoBD::conectar();
 
 		$paciente = new Paciente();
-		$paciente->set('nome',strtoupper($_POST['etnome']));
+		$paciente->set('nome',mb_strtoupper($_POST['etnome']),'UTF-8');
 		$paciente->set('fone',$_POST['etfone']);
 		$paciente->set('idade',$_POST['etidade']);
 		$paciente->set('datanasc',$_POST['etdatanasc']);
-		$paciente->set('sexo',strtoupper($_POST['etsexo']));
-		$paciente->set('endereco',strtoupper($_POST['etendereco']));
+		$paciente->set('sexo',mb_strtoupper($_POST['etsexo']),'UTF-8');
+		$paciente->set('endereco',mb_strtoupper($_POST['etendereco']),'UTF-8');
 		$paciente->set('cpf',$_POST['etcpf']);
 		$paciente->set('rg',$_POST['etrg']);
-		$paciente->set('bairro',strtoupper($_POST['etbairro']));
-		$paciente->set('cidade',strtoupper($_POST['etcidade']));
-		$paciente->set('estado',strtoupper($_POST['etestado']));
-		$paciente->set('civil',strtoupper($_POST['etcivil']));
-		$paciente->set('profissao',strtoupper($_POST['etprofissao']));
-		$paciente->set('email',strtoupper($_POST['etemail']));
-		$paciente->set('indicacao',strtoupper($_POST['etindicacao']));
-		$paciente->set('obs',strtoupper($_POST['etobs']));
+		$paciente->set('bairro',mb_strtoupper($_POST['etbairro']),'UTF-8');
+		$paciente->set('cidade',mb_strtoupper($_POST['etcidade']),'UTF-8');
+		$paciente->set('estado',mb_strtoupper($_POST['etestado']),'UTF-8');
+		$paciente->set('civil',mb_strtoupper($_POST['etcivil']),'UTF-8');
+		$paciente->set('profissao',mb_strtoupper($_POST['etprofissao']),'UTF-8');
+		$paciente->set('email',mb_strtoupper($_POST['etemail']),'UTF-8');
+		$paciente->set('indicacao',mb_strtoupper($_POST['etindicacao']),'UTF-8');
+		$paciente->set('obs',mb_strtoupper($_POST['etobs']),'UTF-8');
 		$paciente->set('datacadastro',$_POST['etdatacadastro']);
 
 		if($paciente->cadastrarPaciente()){
@@ -46,7 +46,7 @@ class PacienteController{
 		ConexaoBD::conectar();
 
 		$paciente = new Paciente();
-		$paciente->set('nome',$nome);
+		$paciente->set('nome',mb_strtoupper($nome),'UTF-8');
 		$paciente->set('cpf',$cpf);
 
 		$dados = $paciente->buscarPaciente();
@@ -64,22 +64,22 @@ class PacienteController{
 		ConexaoBD::conectar();
 
 		$paciente = new Paciente();
-		$paciente->set('nome',strtoupper($_POST['etnome']));
+		$paciente->set('nome',mb_strtoupper($_POST['etnome']),'UTF-8');
 		$paciente->set('fone',$_POST['etfone']);
 		$paciente->set('idade',$_POST['etidade']);
 		$paciente->set('datanasc',$_POST['etdatanasc']);
-		$paciente->set('sexo',strtoupper($_POST['etsexo']));
-		$paciente->set('endereco',strtoupper($_POST['etendereco']));
+		$paciente->set('sexo',mb_strtoupper($_POST['etsexo']),'UTF-8');
+		$paciente->set('endereco',mb_strtoupper($_POST['etendereco']),'UTF-8');
 		$paciente->set('cpf',$_POST['etcpf']);
 		$paciente->set('rg',$_POST['etrg']);
-		$paciente->set('bairro',strtoupper($_POST['etbairro']));
-		$paciente->set('cidade',strtoupper($_POST['etcidade']));
-		$paciente->set('estado',strtoupper($_POST['etestado']));
-		$paciente->set('civil',strtoupper($_POST['etcivil']));
-		$paciente->set('profissao',strtoupper($_POST['etprofissao']));
-		$paciente->set('email',strtoupper($_POST['etemail']));
-		$paciente->set('indicacao',strtoupper($_POST['etindicacao']));
-		$paciente->set('obs',strtoupper($_POST['etobs']));
+		$paciente->set('bairro',mb_strtoupper($_POST['etbairro']),'UTF-8');
+		$paciente->set('cidade',mb_strtoupper($_POST['etcidade']),'UTF-8');
+		$paciente->set('estado',mb_strtoupper($_POST['etestado']),'UTF-8');
+		$paciente->set('civil',mb_strtoupper($_POST['etcivil']),'UTF-8');
+		$paciente->set('profissao',mb_strtoupper($_POST['etprofissao']),'UTF-8');
+		$paciente->set('email',mb_strtoupper($_POST['etemail']),'UTF-8');
+		$paciente->set('indicacao',mb_strtoupper($_POST['etindicacao']),'UTF-8');
+		$paciente->set('obs',mb_strtoupper($_POST['etobs']),'UTF-8');
 
 		if ($paciente->editarPaciente()) {
 			echo "<script>alert('Operação realizada com sucesso.');</script>";

@@ -5,6 +5,11 @@ class Funcionario{
 	private $nome;
 	private $cpf;
 	private $funcao;
+	private $admissao;
+	private $status;
+	private $rg;
+	private $demissao;
+	private $salario;
 
 	public function set($prop,$valor){
 		$this->$prop = $valor;
@@ -16,7 +21,7 @@ class Funcionario{
 
 	public function cadastrarFuncionario(){
 
-		$sql = "insert into funcionario (nome,cpf,funcao) values ('{$this->nome}','{$this->cpf}','{$this->funcao}')";
+		$sql = "insert into funcionario (nome,cpf,funcao,admissao,status,rg,demissao,salario) values ('{$this->nome}','{$this->cpf}','{$this->funcao}','{$this->admissao}','{$this->status}','{$this->rg}','{$this->demissao}','{$this->salario}')";
 		if (ConexaoBD::executar($sql) !== null) {
 			return true;
 		}else{

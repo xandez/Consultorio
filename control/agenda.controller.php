@@ -13,13 +13,13 @@ class AgendaController{
 		ConexaoBD::conectar();
 
 		$agenda = new Agenda();
-		$agenda->set('funcionario',strtoupper($_POST['etfuncionario']));
+		$agenda->set('funcionario',mb_strtoupper($_POST['etfuncionario']),'UTF-8');
 		$agenda->set('inicio',$_POST['etinicio']);
 		$agenda->set('fim',$_POST['etfim']);
-		$agenda->set('tipo',strtoupper($_POST['ettipo']));
-		$agenda->set('paciente',strtoupper($_POST['etpaciente']));
+		$agenda->set('tipo',mb_strtoupper($_POST['ettipo']),'UTF-8');
+		$agenda->set('paciente',mb_strtoupper($_POST['etpaciente']),'UTF-8');
 		$agenda->set('protocolo',$_POST['etprotocolo']);
-		$agenda->set('status',strtoupper("aberto"));
+		$agenda->set('status',mb_strtoupper("aberto"),'UTF-8');
 
 		if ($agenda->cadastrarAgenda()) {
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
@@ -36,7 +36,7 @@ class AgendaController{
 		ConexaoBD::conectar();
 
 		$agenda = new Agenda();
-		$agenda->set('funcionario',$funcionario);
+		$agenda->set('funcionario',mb_strtoupper($funcionario),'UTF-8');
 		$agenda->set('inicio',$inicio);
 		$agenda->set('fim',$fim);
 		$dados = $agenda->buscarAgenda();
