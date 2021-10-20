@@ -38,7 +38,7 @@ $lista = $pac->listarDadosPaciente($_POST['etnome'],$_POST['etcpf']);
 	      <td>'.$dados->nome.'</td>
 	      <td>'.$dados->fone.'</td>
 	      <td>'.$dados->endereco.'</td>
-	      <td><a href="editarpaciente.php?cpf='.$dados->cpf.'" class="btn btn-primary btn-sm" role="button">Editar</a></td>
+	      <td><a href="editarpaciente.php?cpf='.$dados->cpf.'" class="btn btn-primary btn-sm" role="button">Editar</a> <a href="novopagamento.php?etcpf='.$dados->cpf.'" class="btn btn-primary btn-sm" role="button">Pag.</a></td>
 	    </tr>
 	    ';
 	}

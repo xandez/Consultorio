@@ -36,10 +36,10 @@ $lista = $proc->listarProcedimento($_POST['etnome'],$_POST['etid']);
 		<tr>
 	      <th scope="row">'.$dados->id.'</th>
 	      <td>'.$dados->nome.'</td>
-	      <td>'.$dados->valor.'</td>
-	      <td>'.$dados->valormin.'</td>
-	      <td>'.$dados->valormax.'</td>
-	      <td>'.$dados->custo.'</td>
+	      <td>'.str_replace('.',',',$dados->valor).'</td>
+	      <td>'.str_replace('.',',',$dados->valormin).'</td>
+	      <td>'.str_replace('.',',',$dados->valormax).'</td>
+	      <td>'.str_replace('.',',',$dados->custo).'</td>
 	      <td><a href="editarprocedimento.php?id='.$dados->id.'" class="btn btn-primary btn-sm" role="button">Editar</a></td>
 	    </tr>
 	    ';

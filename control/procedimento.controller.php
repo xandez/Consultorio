@@ -15,11 +15,11 @@ class ProcedimentoController{
 	
 		$procedimento = new Procedimento();
 		$procedimento->set('nome',mb_strtoupper($_POST['etnome']),'UTF-8');
-		$procedimento->set('valor',number_format($_POST['etvalor'],2,'.',','));
-		$procedimento->set('valmin',number_format($_POST['etvalmin'],2,'.',','));
-		$procedimento->set('valmax',number_format($_POST['etvalmax'],2,'.',','));
+		$procedimento->set('valor',str_replace(',','.',$_POST['etvalor']));
+		$procedimento->set('valmin',str_replace(',','.',$_POST['etvalmin']));
+		$procedimento->set('valmax',str_replace(',','.',$_POST['etvalmax']));
 		$procedimento->set('especialidade',mb_strtoupper($_POST['etespec']),'UTF-8');
-		$procedimento->set('custo',number_format($_POST['etcusto'],2,'.',','));
+		$procedimento->set('custo',str_replace(',','.',$_POST['etcusto']));
 
 		if ($procedimento->cadastrarProcedimento()) {
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
@@ -56,11 +56,11 @@ class ProcedimentoController{
 		$procedimento = new Procedimento();
 		$procedimento->set('id',$_POST['etcod']);
 		$procedimento->set('nome',mb_strtoupper($_POST['etnome']),'UTF-8');
-		$procedimento->set('valor',number_format($_POST['etvalor'],2,'.',','));
-		$procedimento->set('valmin',number_format($_POST['etvalmin'],2,'.',','));
-		$procedimento->set('valmax',number_format($_POST['etvalmax'],2,'.',','));
+		$procedimento->set('valor',str_replace(',','.',$_POST['etvalor']));
+		$procedimento->set('valmin',str_replace(',','.',$_POST['etvalmin']));
+		$procedimento->set('valmax',str_replace(',','.',$_POST['etvalmax']));
 		$procedimento->set('especialidade',mb_strtoupper($_POST['etespec']),'UTF-8');
-		$procedimento->set('custo',number_format($_POST['etcusto'],2,'.',','));
+		$procedimento->set('custo',str_replace(',','.',$_POST['etcusto']));
 
 		if($procedimento->editarProcedimento()){
 			echo "<script>alert('Operação realizada com sucesso.');</script>";

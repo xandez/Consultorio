@@ -73,7 +73,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 				    alert('Selecionado: ' + info.startStr + ' até ' + info.endStr);
 				  },
 				  <?php 
-				  	echo "events: [";
+				  	echo 'events: [';
 				  		foreach($listaagenda as $dados){
 				  			echo"{
 				  				title: 'Protocolo: ".$dados->protocolo."',
@@ -86,7 +86,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 				  		}
 				  		echo"]";
 							?>
-        });
+				});
         calendar.render();
       });
 

@@ -73,19 +73,19 @@ $lista = $proc->listarProcedimento("",$id);
           </tr>
           <tr>
             <td>
-              <input class='form-control' name='etvalor' required type='text'  onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".$dados->valor."'"; ?>>
+              <input class='form-control' name='etvalor' required type='text'  onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".str_replace('.',',',$dados->valor)."'"; ?>>
             </td>
             <td style='width: 1%'></td>
             <td>
-              <input class='form-control' name='etvalmin' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".$dados->valormin."'"; ?>>
+              <input class='form-control' name='etvalmin' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".str_replace('.',',',$dados->valormin)."'"; ?>>
             </td>
             <td style='width:1%'></td>
             <td>
-              <input class='form-control' name='etvalmax' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".$dados->valormax."'"; ?>>
+              <input class='form-control' name='etvalmax' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".str_replace('.',',',$dados->valormax)."'"; ?>>
             </td>
             <td style='width:1%'></td>
             <td>
-              <input class='form-control' name = 'etcusto' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".$dados->custo."'"; ?>>
+              <input class='form-control' name = 'etcusto' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".str_replace('.',',',$dados->custo)."'"; ?>>
             </td>
           </tr>
           <tr>
