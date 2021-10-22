@@ -27,6 +27,24 @@ class PagamentoController{
 
     ConexaoBD::desconecta();
   }
+
+  public function listarSaldo($cpf){
+    ConexaoBD::conectar();
+
+    $pagamento = new Pagamento();
+    $pagamento->set('cpf',$cpf);
+
+    $dados = $pagamento->saldo();
+
+    if ($dados != null) {
+      return $dados;
+    }else{
+      return $msg = "Sem registro";
+    }
+
+    ConexaoBD::desconecta();
+
+  }
 }
 $controller = new PagamentoController();
 

@@ -4,15 +4,23 @@ date_default_timezone_set('America/Sao_Paulo');
 
 require_once '../control/pagamento.controller.php';
 require_once '../control/paciente.controller.php';
+require_once '../control/pagamento.controller.php';
 
 $cpf = $_GET['etcpf'];
-
+//listar dados do paciente selecionado
 $paciente = new PacienteController();
 $listarpaciente = $paciente->listarDadosPaciente("",$cpf);
 
 foreach ($listarpaciente as $dados){
+}
+
+$saldo = new PagamentoController();
+$saldopaciente = $saldo->listarSaldo($cpf);
+//print_r($saldopaciente);
+foreach ($saldopaciente as $dados1){
 
 }
+
 
 ?>
 
@@ -65,6 +73,12 @@ foreach ($listarpaciente as $dados){
             <input type='submit' class='btn btn-success' value='Lançar'>
             <a href='buscarpaciente.php' class='btn btn-danger' role='button'>Cancelar</a>
           </td>
+        </tr>
+        <tr>
+          <th><br></th>
+        </tr>
+        <tr>
+          <th>Saldo atual: <?php echo $dados1->saldo ?> </th>
         </tr>
       </tbody>
     </table>

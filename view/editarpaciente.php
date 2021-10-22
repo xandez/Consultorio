@@ -37,11 +37,11 @@ $lista = $pac->listarDadosPaciente("",$cpf);
         </tr>
         <tr>
           <td>
-            <input class='form-control' name='etcpf' required minlength="14" maxlength="14" type='text'  onkeypress="$(this).mask('000.000.000-00');" <?php echo "value='".$dados->cpf."'"; ?>>
+            <input readonly class='form-control' name='etcpf' required minlength="14" maxlength="14" type='text'  onkeypress="$(this).mask('000.000.000-00');" <?php echo "value='".$dados->cpf."'"; ?>>
           </td>
           <td style='width:1%'></td>
           <td>
-            <input class='form-control' name='etrg' minlength="12" maxlength="12" type='text'  onkeypress="$(this).mask('99.999.999-9');" <?php echo "value='".$dados->rg."'"; ?>>
+            <input readonly class='form-control' name='etrg' minlength="12" maxlength="12" type='text'  onkeypress="$(this).mask('99.999.999-9');" <?php echo "value='".$dados->rg."'"; ?>>
           </td>
           <td style='width:1%'></td>
           <td  colspan="3">
@@ -186,7 +186,7 @@ $lista = $pac->listarDadosPaciente("",$cpf);
         <tr>
           <td>
             <input type='submit' class='btn btn-success' value='Salvar'>
-            <a href='menupaciente.php' class='btn btn-danger' role='button'>Cancelar</a>
+            <a href='buscarpaciente.php' class='btn btn-danger' role='button'>Cancelar</a>
           </td>
           <td style='width:1%'></td>
           <td>

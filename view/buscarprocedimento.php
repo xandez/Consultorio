@@ -25,13 +25,13 @@
 	          	</tr>
 	          	<tr>
 		            <th>
-		              Ação
+		              Ações
 		            </th>
 		        </tr>  
 	          	<tr>
 	          		<td>
 	          			<input type='submit' class='btn btn-success' value='Buscar'>
-	              		<a href='menuprocedimento.php' class='btn btn-danger' role='button'>Cancelar</a>
+	              		<a href='novoprocedimento.php' class='btn btn-primary' role='button'>Novo</a>
 	          		</td>
 	          	</tr>
 	      	</tbody>

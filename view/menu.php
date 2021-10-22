@@ -17,23 +17,6 @@
       <a class="navbar-brand" href="#">Navbar</a>
     </nav>
     <br>
-    <!--
-    <div class="row">
-      <div class="col-2">
-        <ul class="list-group">
-          <a href="#" class="list-group-item list-group-item-action " aria-current="true">
-            Inicio
-          </a>
-          <a href="novopaciente.php" class="list-group-item list-group-item-action" target="frameprinc" >Paciente</a>
-          <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-          <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-        </ul>        
-      </div>
-      <div class="col-8">
-        <iframe name="frameprinc" height="1200" width="1300" src=""></iframe>
-      </div>
-    </div>
--->
     <div class="row">
       <div class="col-2">
         <div class="list-group" id="list-tab" role="tablist">
@@ -49,16 +32,16 @@
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="list-inicio" role="tabpanel" aria-labelledby="list-inicio-list">1</div>
           <div class="tab-pane fade" id="list-paciente" role="tabpanel" aria-labelledby="list-paciente-list">
-            <iframe name="frameprinc" height="1200" width="100%" src="menupaciente.php"></iframe>
+            <iframe name="frameprinc" height="1200" width="100%" src="buscarpaciente.php"></iframe>
           </div>
           <div class="tab-pane fade" id="list-procedimento" role="tabpanel" aria-labelledby="list-procedimento-list">
-            <iframe name="frameproc" height="1200" width="100%" src="menuprocedimento.php"></iframe>
+            <iframe name="frameproc" height="1200" width="100%" src="buscarprocedimento.php"></iframe>
           </div>
           <div class="tab-pane fade" id="list-agenda" role="tabpanel" aria-labelledby="list-agenda-list">
             <iframe name="frameagen" height="1200" width="100%" src="selecaoDentista.php"></iframe>
           </div>
           <div class="tab-pane fade" id="list-funcionario" role="tabpanel" aria-labelledby="list-funcionario-list">
-            <iframe name="framefuncionario" height="1200" width="100%" src="novofuncionario.php"></iframe>
+            <iframe name="framefuncionario" height="1200" width="100%" src="buscarfuncionario.php"></iframe>
           </div>
         </div>
       </div>

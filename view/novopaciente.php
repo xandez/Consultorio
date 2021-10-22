@@ -163,13 +163,13 @@ date_default_timezone_set('America/Sao_Paulo'); ?>
           </tr>
           <tr>
             <th>
-              Ação
+              Ações
             </th>
           </tr>      
           <tr>
             <td>
               <input type='submit' class='btn btn-success' value='Salvar'>
-              <a href='menupaciente.php' class='btn btn-danger' role='button'>Cancelar</a>
+              <a href='buscarpaciente.php' class='btn btn-danger' role='button'>Cancelar</a>
             </td>
             <td style='width:1%'></td>
             <td>

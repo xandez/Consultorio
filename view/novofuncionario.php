@@ -78,7 +78,7 @@
         <tr>
           <td>
             <input type='submit' class='btn btn-success' value='Salvar'>
-              <a href='menu.php' class='btn btn-danger' role='button'>Cancelar</a>
+              <a href='buscarfuncionario.php' class='btn btn-danger' role='button'>Cancelar</a>
           </td>
         </tr>
       </tbody>

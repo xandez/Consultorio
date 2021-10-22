@@ -1,46 +1,51 @@
+<?php 
+error_reporting(0);
+
+require_once '../control/funcionario.controller.php';
+
+$pac = new FuncionarioController();
+$lista = $pac->listarDadosfuncionario("",$_POST['etnome'],$_POST['etcpf']);
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Buscar Paciente</title>
+	<title>Lista de Funcionario</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
-	<form method="post" action="listarpaciente.php">
-	<table>
-    	<tbody>
-          	<tr>
-          		<th>CPF</th>
-          		<th style='width:1%'></th>
-          		<th class="col-sm-9">Nome Paciente</th>
-          	</tr>
-          	<tr>
-          		<td>
-          			<input class='form-control' name='etcpf' maxlength="14" type='text'  onkeypress="$(this).mask('000.000.000-00');">
-          		</td>
-          		<td style='width:1%'></td>
-          		<td colspan='5'>
-	              <input class='form-control' name='etnome' type='text' >
-	            </td>
-          	</tr>
-          	<tr>
-	            <th>
-	              Ações
-	            </th>
-	        </tr>  
-          	<tr>
-          		<td>
-          			<input type='submit' class='btn btn-success' value='Buscar'>
-              	<a href='novopaciente.php' class='btn btn-primary' role='button'>Novo</a>
-          		</td>
-          	</tr>
-      	</tbody>
-  	</table>
+	<a href='buscarfuncionario.php' class='btn btn-danger' role='button'>Voltar</a>
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col">CPF</th>
+	      <th scope="col">Nome</th>
+	      <th scope="col">Função</th>
+	      <th scope="col">Situação</th>
+        <th scope="col">Ação</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+<?php 
 
-	</form>
-	<!--
-	<iframe scrolling="no"  height="100%" width="100%" src="listarpaciente.php"></iframe>
-	-->
+	foreach ($lista as $dados){
+		echo'
+		<tr>
+	      <th scope="row">'.$dados->cpf.'</th>
+	      <td>'.$dados->nome.'</td>
+	      <td>'.$dados->funcao.'</td>
+	      <td>'.$dados->status.'</td>
+	      <td><a href="editarfuncionario.php?cpf='.$dados->cpf.'" class="btn btn-primary btn-sm" role="button">Editar</a></td>
+	    </tr>
+	    ';
+	}
+
+?>
+	    
+	</table>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>

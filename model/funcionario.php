@@ -30,8 +30,22 @@ class Funcionario{
 	}
 
 	public function buscarFuncionario(){
+		if ($this->cpf != null) {
+			$sql = "SELECT * FROM funcionario WHERE cpf like '{$this->cpf}%'";
+			
+			$res = ConexaoBD::executar($sql);
+			$lista = null;
+			while ($objeto = mysqli_fetch_object($res)){
+				if ($objeto != null) {
+					$lista[] = $objeto;
+				}else{
+					$lista[] = "Sem dados";
+				}				
+			}
+			return $lista;
+		}
 		if ($this->nome != null) {
-			$sql = "SELECT * FROM funcionario WHERE nome like'{$this->nome}'";
+			$sql = "SELECT * FROM funcionario WHERE nome like '{$this->nome}%'";
 
 			$res = ConexaoBD::executar($sql);
 			$lista = null;
@@ -54,6 +68,25 @@ class Funcionario{
 			return $lista;
 		}
 	}
+
+		public function editarFuncionario(){
+			$sql = "UPDATE funcionario SET 
+			nome = '{$this->nome}',
+			cpf = '{$this->cpf}',
+			funcao = '{$this->funcao}',
+			admissao = '{$this->admissao}',
+			status = '{$this->status}',
+			rg = '{$this->rg}',
+			demissao = '{$this->demissao}',
+			salario = '{$this->salario}'
+			WHERE cpf = '{$this->cpf}'";
+
+			if (ConexaoBD::executar($sql) != null) {
+				return true;
+			}else{
+				return false;
+			}
+		}
 
 }
 

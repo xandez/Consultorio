@@ -42,24 +42,11 @@ $lista = $proc->listarProcedimento("",$id);
           	</td>
           	<td style='width:1%'></td>
             <td>
-            	<select class ='form-control select' name ='etespec'>
-            	<?php echo "<option value ='".$dados->especialidade."'>".$dados->especialidade."</option>"; ?>	
-		        	<option value ='Cirurgia e Implante'>Cirurgia e Implante</option>
-		        	<option value ='Dentística'>Dentística</option>
-		        	<option value ='Endodontia'>Endodontia</option>
-		        	<option value ='Harmonização Facial'>Harmonização Facial</option>
-		        	<option value ='Implantodontia'>Implantodontia</option>
-		        	<option value ='Ortodontia'>Ortodontia</option>
-		        	<option value ='Periodontia'>Periodontia</option>
-		        	<option value ='Prevenção'>Prevenção</option>
-		        	<option value ='Prótese Dentário'>Prótese Dentário</option>
-		        	<option value ='Radiologia'>Radiologia</option>
-		        	<option value ='Serviços Gerais'>Serviços Gerais</option>
-		        </select>
+            	<input readonly class='form-control' name='etespec' required type='text' <?php echo "value='".$dados->especialidade."'"; ?>>
             </td>
             <td style='width:1%'></td>
             <td colspan='5'>
-              <input class='form-control' name='etnome' required type='text' <?php echo "value='".$dados->nome."'"; ?>>
+              <input readonly class='form-control' name='etnome' required type='text' <?php echo "value='".$dados->nome."'"; ?>>
             </td>
           </tr>
           <tr>
@@ -96,7 +83,7 @@ $lista = $proc->listarProcedimento("",$id);
           <tr>
             <td>
               <input type='submit' class='btn btn-success' value='Salvar'>
-              <a href='menuprocedimento.php' class='btn btn-danger' role='button'>Cancelar</a>
+              <a href='buscarprocedimento.php' class='btn btn-danger' role='button'>Cancelar</a>
             </td>
             <td style='width:1%'></td>
             <td>
