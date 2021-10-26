@@ -1,3 +1,10 @@
+<?php  
+session_start();
+
+if($_SESSION['nome'] == null){
+  header("Location:../view/index.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>

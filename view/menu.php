@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+if($_SESSION['nome'] == null){
+  header("Location:../view/index.php");
+}
+
+$usuariologado = $_SESSION['nome'];
+
+?>
 <!DOCTYPE html>
   <html>
   <head>
@@ -14,7 +24,8 @@
   <body>
 
     <nav class="navbar navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">Olá <?php echo $usuariologado; ?></a>
+      <a class="btn btn-primary" href="index.php?link=1" role="button">Sair</a>
     </nav>
     <br>
     <div class="row">

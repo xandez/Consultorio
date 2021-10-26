@@ -1,5 +1,11 @@
 <?php 
-date_default_timezone_set('America/Sao_Paulo'); ?>
+date_default_timezone_set('America/Sao_Paulo'); 
+session_start();
+
+if($_SESSION['nome'] == null){
+  header("Location:../view/index.php");
+}
+?>
 <!DOCTYPE html>
   <html>
   <head>

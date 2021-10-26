@@ -1,5 +1,10 @@
 <?php 
 error_reporting(0);
+session_start();
+
+if($_SESSION['nome'] == null){
+  header("Location:../view/index.php");
+}
 
 require_once '../control/procedimento.controller.php';
 
@@ -15,7 +20,7 @@ $lista = $proc->listarProcedimento($_POST['etnome'],$_POST['etid']);
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
-	<a href='buscarprocedimento.php' class='btn btn-danger' role='button'>Voltar</a>
+	
 	<table class="table">
 	  <thead>
 	    <tr>
@@ -48,5 +53,6 @@ $lista = $proc->listarProcedimento($_POST['etnome'],$_POST['etid']);
 ?>
 	    
 	</table>
+	<a href='buscarprocedimento.php' class='btn btn-danger' role='button'>Voltar</a>
 </body>
 </html>

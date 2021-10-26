@@ -1,6 +1,11 @@
 <?php 
 error_reporting(0);
 date_default_timezone_set('America/Sao_Paulo');
+session_start();
+
+if($_SESSION['nome'] == null){
+  header("Location:../view/index.php");
+}
 
 require_once '../control/pagamento.controller.php';
 require_once '../control/paciente.controller.php';
@@ -57,7 +62,7 @@ foreach ($saldopaciente as $dados1){
           </td>
           <td style='width:1%'></td>
           <td>
-            <input class='form-control' name='etdata' required type='datetime-local'  >
+            <input class='form-control' name='etdatalanc' required type='datetime-local'  >
           </td>
           <td style='width:1%'></td>
           <td>
@@ -70,6 +75,7 @@ foreach ($saldopaciente as $dados1){
             </select>
           </td>
           <td>
+            <input type="hidden" name="etdata" <?php echo "value='".date('Y-m-d H:i:s')."'"; ?>>
             <input type='submit' class='btn btn-success' value='Lançar'>
             <a href='buscarpaciente.php' class='btn btn-danger' role='button'>Cancelar</a>
           </td>
@@ -78,7 +84,7 @@ foreach ($saldopaciente as $dados1){
           <th><br></th>
         </tr>
         <tr>
-          <th>Saldo atual: <?php echo $dados1->saldo ?> </th>
+          <th>Saldo atual: <?php if($dados1->saldo != 0){ echo $dados1->saldo; }else{ echo 0; }?> </th>
         </tr>
       </tbody>
     </table>

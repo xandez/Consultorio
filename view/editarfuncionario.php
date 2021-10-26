@@ -1,5 +1,10 @@
 <?php 
 error_reporting(0);
+session_start();
+
+if($_SESSION['nome'] == null){
+  header("Location:../view/index.php");
+}
 
 require_once '../control/funcionario.controller.php';
 

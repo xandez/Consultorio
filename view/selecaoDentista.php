@@ -1,10 +1,14 @@
 <?php 
 error_reporting(0);
+session_start();
 
+if($_SESSION['nome'] == null){
+  header("Location:../view/index.php");
+}
 require_once '../control/funcionario.controller.php';
 
 $func = new FuncionarioController();
-$lista = $func->listarDadosFuncionario('Dentista');
+$lista = $func->listarDadosFuncionario('Dentista','','');
 
 ?>
 
@@ -41,7 +45,7 @@ $lista = $func->listarDadosFuncionario('Dentista');
           <td style='width:1%'></td>
           <td >
             <input type='submit' class='btn btn-success' value='Buscar'>
-            <a href='menuprocedimento.php' class='btn btn-danger' role='button'>Cancelar</a>
+            <a href='' class='btn btn-danger' role='button'>Cancelar</a>
           </td>
         </tr>
       </tbody>

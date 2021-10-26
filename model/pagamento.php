@@ -5,6 +5,7 @@ class Pagamento{
   private $cpf;
   private $valor;
   private $data;
+  private $datalanc;
   private $tipo;
 
   public function set($prop,$valor){
@@ -16,7 +17,7 @@ class Pagamento{
 	}
 
   public function cadastrar(){
-    $sql = "insert into pagamento (cpf,valor,data,tipo) values ('{$this->cpf}','{$this->valor}','{$this->data}','{$this->tipo}')";
+    $sql = "insert into pagamento (cpf,valor,datalanc,data,tipo) values ('{$this->cpf}','{$this->valor}','{$this->datalanc}','{$this->data}','{$this->tipo}')";
     if (ConexaoBD::executar($sql) === true) {
       return true;
     }else{

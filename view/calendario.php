@@ -1,6 +1,12 @@
 <?php 
 error_reporting(0);
 
+session_start();
+
+if($_SESSION['nome'] == null){
+  header("Location:../view/index.php");
+}
+
 require_once '../control/agenda.controller.php';
 require_once '../control/funcionario.controller.php';
 require_once '../control/paciente.controller.php';
@@ -72,13 +78,20 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 				  select: function(info) {
 				    alert('Selecionado: ' + info.startStr + ' até ' + info.endStr);
 				  },
+					eventClick: function(info) {
+						info.jsEvent.preventDefault();
+						if (info.event.url) {
+      				window.open(info.event.url);
+    				}
+					},
 				  <?php 
 				  	echo 'events: [';
 				  		foreach($listaagenda as $dados){
 				  			echo"{
-				  				title: 'Protocolo: ".$dados->protocolo."',
+				  				title: 'Paciente: ".$dados->paciente."',
 		          		start: '".$dados->inicio."',
-		          		end: '".$dados->fim."'";
+		          		end: '".$dados->fim."',
+									url: 'http://google.com/'";
 		          		if ($dados->tipo == "CONSULTA") {
 		          			echo ",color: 'silver'";
 		          		}
