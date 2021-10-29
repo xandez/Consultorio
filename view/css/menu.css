@@ -1,0 +1,24 @@
+nav{
+  background-color: #7B193F !important;
+}
+
+nav span{
+  font-size: 18px !important;
+  color: aliceblue;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.logo{
+  margin-left: 100px;
+}
+
+.list-group-item.active{
+  background-color: #7B193F !important;
+  border-color: #7B193F !important;
+}
+
+.col-2{
+  margin-left: 10px !important;
+  width: 15% !important;
+}

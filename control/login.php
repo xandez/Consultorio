@@ -5,7 +5,6 @@
 	$senha 	 = $_POST['etSenha'];
 	$entrar  = $_POST['entrar'];
 
-
 	ConexaoBD::conectar();
 	session_start();
 

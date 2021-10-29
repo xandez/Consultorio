@@ -38,9 +38,7 @@ class Funcionario{
 			while ($objeto = mysqli_fetch_object($res)){
 				if ($objeto != null) {
 					$lista[] = $objeto;
-				}else{
-					$lista[] = "Sem dados";
-				}				
+				}			
 			}
 			return $lista;
 		}
@@ -57,7 +55,7 @@ class Funcionario{
 			return $lista;
 		}
 		if($this->funcao != null){
-			$sql = "SELECT * FROM funcionario WHERE funcao = '{$this->funcao}'";
+			$sql = "SELECT * FROM funcionario WHERE funcao = '{$this->funcao}' order by nome";
 			$res = ConexaoBD::executar($sql);
 			$lista = null;
 			while ($objeto = mysqli_fetch_object($res)) {

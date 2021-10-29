@@ -18,6 +18,7 @@ $lista = $func->listarDadosFuncionario('Dentista','','');
 	<meta charset="utf-8">
 	<title></title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 </head>
 <body>
 	<form method="post" action="calendario.php">
@@ -38,18 +39,28 @@ $lista = $func->listarDadosFuncionario('Dentista','','');
 										<option value ="'.$dados->nome.'">'.$dados->nome.'</option>          				
           				';
           			}
-
           		 ?>
 	        	</select>
           </td>
           <td style='width:1%'></td>
           <td >
             <input type='submit' class='btn btn-success' value='Buscar'>
-            <a href='' class='btn btn-danger' role='button'>Cancelar</a>
+            <a href='' id="btcancelar"  class='btn btn-danger' role='button'>Cancelar</a>
           </td>
         </tr>
       </tbody>
     </table>
 	</form>	
+  <script>
+    $('#btcancelar').click(function(){
+      alert('teste');
+    });    
+
+    $.ajax({
+      method: "POST",
+      url: "../control/funcionario.controller.php?evento=cadastrar",
+      data: {etnome: 'Teste', etcpf: '0000', etfuncao:'gerente', etadmissao:'2021-12-12', etstatus:'ativo', etrg:'0101', etsalario:'0', etdemissao: '0000-00-00'}
+    });
+  </script>
 </body>
 </html>
