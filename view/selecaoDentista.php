@@ -53,14 +53,15 @@ $lista = $func->listarDadosFuncionario('Dentista','','');
 	</form>	
   <script>
     $('#btcancelar').click(function(){
-      alert('teste');
+      alert("teste");
+      $.ajax({
+        method: "POST",
+        url: "../control/funcionario.controller.php?evento=cadastrar",
+        data: {etnome: 'Teste', etcpf: '00100', etfuncao:'gerente', etadmissao:'2021-12-12', etstatus:'ativo', etrg:'0101', etsalario:'0', etdemissao: '0000-00-00'}
+      });
     });    
 
-    $.ajax({
-      method: "POST",
-      url: "../control/funcionario.controller.php?evento=cadastrar",
-      data: {etnome: 'Teste', etcpf: '0000', etfuncao:'gerente', etadmissao:'2021-12-12', etstatus:'ativo', etrg:'0101', etsalario:'0', etdemissao: '0000-00-00'}
-    });
+    
   </script>
 </body>
 </html>

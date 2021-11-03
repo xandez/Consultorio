@@ -42,6 +42,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 	<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/locales-all.min.js"></script>
+	
 
 	<script type="text/javascript">
 		var data = new Date();
@@ -95,7 +96,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 		          		if ($dados->tipo == "CONSULTA") {
 		          			echo ",color: 'silver'";
 		          		}
-		        		echo "},";
+		        		echo '},';
 				  		}
 				  		echo"]";
 							?>
@@ -122,7 +123,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
         </tr>
         <tr>
           <td>
-          	<select class ='form-control select' name ='etpaciente'>
+          	<select id="etpaciente" class ='form-control select' name ='etpaciente'>
           		<?php 
           		foreach ($listapaciente as $dados2){
           			echo '<option value ="'.$dados2->nome.'">'.$dados2->nome.'</option>';
@@ -133,28 +134,28 @@ $listapaciente = $paciente->listarDadosPaciente("","");
           </td>
           <td style='width:1%'></td>
           <td >
-            <input class='form-control' name='etinicio' required type='datetime-local' >
+            <input id="etinicio" class='form-control' name='etinicio' required type='datetime-local' >
           </td>
           <td style='width:1%'></td>
           <td >
-            <input class='form-control' name='etfim' required type='datetime-local' >
+            <input id="etfim" class='form-control' name='etfim' required type='datetime-local' >
           </td>
           <td style='width:1%'></td>
           <td>
-          	<select class ='form-control select' name ='ettipo'>
+          	<select id="ettipo" class ='form-control select' name ='ettipo'>
 		        	<option value ='Atendimento'>Atendimento</option>
 		        	<option value ='Consulta'>Consulta</option>
 	        	</select>
           </td>
           <td style='width:1%'></td>
           <td>
-            <input type='submit' class='btn btn-success' value='Agendar'>
+            <a id="btagendar" href="" class='btn btn-success'>Agendar</a>
             <a href='selecaoDentista.php' class='btn btn-danger' role='button'>Cancelar</a>
           </td>
           <td style='width:1%'></td>
           <td>
             <input class='form-control' name='situacao' type='hidden' >
-            <input type="hidden" name="etfuncionario"<?php echo "value='".$dentista."'"; ?> >
+            <input id="etfuncionario" type="hidden" name="etfuncionario"<?php echo "value='".$dentista."'"; ?> >
             <input type="hidden" name="etprotocolo" value="0" >
           </td>
         </tr>
@@ -170,5 +171,33 @@ $listapaciente = $paciente->listarDadosPaciente("","");
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+
+		<script>
+			$("#btagendar").click(function(){
+				var funcionario = $("#etfuncionario").val();
+				//alert (funcionario);
+				var paciente = $("#etpaciente option:selected").val();
+				//alert (paciente);
+				var inicio = $("#etinicio").val();
+				//alert (inicio);
+				var fim = $("#etfim").val();
+				//alert (fim);
+				var tipo = $("#ettipo option:selected").val();
+				//alert (tipo);
+				$.ajax({
+					method: "POST",
+					url: "../control/agenda.controller.php?evento=cadastrar",
+					data: {
+						etfuncionario: funcionario,
+						etinicio: inicio,
+						etfim: fim,
+						ettipo: tipo,
+						etpaciente: paciente,
+						etprotocolo: '0',
+						etstatus:'Ativo'}
+				});
+			});
+		</script>
 </body>
 </html>

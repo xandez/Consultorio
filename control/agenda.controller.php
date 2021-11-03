@@ -19,7 +19,7 @@ class AgendaController{
 		$agenda->set('tipo',mb_strtoupper($_POST['ettipo']),'UTF-8');
 		$agenda->set('paciente',mb_strtoupper($_POST['etpaciente']),'UTF-8');
 		$agenda->set('protocolo',$_POST['etprotocolo']);
-		$agenda->set('status',mb_strtoupper("aberto"),'UTF-8');
+		$agenda->set('status',mb_strtoupper($_POST['etstatus']),'UTF-8');
 
 		if ($agenda->cadastrarAgenda()) {
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
