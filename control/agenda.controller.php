@@ -47,6 +47,46 @@ class AgendaController{
 			$msg = 'não tem dados';
 			return $msg;
 		}
+
+		ConexaoBD::desconecta();
+	}
+
+	public function listarAgenda($id){
+		ConexaoBD::conectar();
+
+		$agenda = new Agenda();
+		$agenda->set('id',$id);
+		$dados = $agenda->buscarAgenda();
+
+		if($dados != null){
+			return $dados;
+		}else{
+			$msg = 'não tem dados';
+			return $msg;
+		}
+
+		ConexaoBD::desconecta();
+	}
+
+	public function editarAgenda(){
+
+		ConexaoBD::conectar();
+
+		$agenda = new Agenda();
+		$agenda->set('id',$_POST['etid']);
+		$agenda->set('inicio',$_POST['etinicio']);
+		$agenda->set('fim',$_POST['etfim']);
+		$agenda->set('tipo',mb_strtoupper($_POST['ettipo']),'UTF-8');
+		$agenda->set('status',mb_strtoupper($_POST['etstatus']),'UTF-8');
+
+		if($agenda->editar()){
+			return true;
+		}else{
+			return false;
+		}
+
+		ConexaoBD::desconecta();
+
 	}
 
 }	

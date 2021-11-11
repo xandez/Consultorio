@@ -17,10 +17,10 @@ $agenda = new AgendaController();
 $inicio = date('Y-m-d', strtotime('-15 days'));
 $fim = date('Y-m-d', strtotime('+15 days'));
 //filtra a agenda para 15 dias apos e antes do dia atual.
-$listaagenda = $agenda->listarDadosAgenda($_POST['etfunc'],$inicio." 08:00:00",$fim." 23:59:59");
+$listaagenda = $agenda->listarDadosAgenda($_REQUEST['etfunc'],$inicio." 08:00:00",$fim." 23:59:59");
 
 //pegar o nome do dentista selecionado;
-$dentista = $_POST['etfunc'];
+$dentista = $_REQUEST['etfunc'];
 
 //listar nome dos pacientes cadastrados.
 $paciente = new PacienteController();
@@ -68,6 +68,8 @@ $listapaciente = $paciente->listarDadosPaciente("","");
           slotDuration: '00:30:00',
           scrollTime: '08:00:00',
           nowIndicator: true,
+					allDaySlot: false,
+					height: 593,
 		      headerToolbar: {
 		        left: 'prev,next today',
 		        center: 'title',
@@ -92,76 +94,76 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 				  				title: 'Paciente: ".$dados->paciente."',
 		          		start: '".$dados->inicio."',
 		          		end: '".$dados->fim."',
-									url: 'http://google.com/'";
+									url: 'listaragenda.php?id=".$dados->id."'";
 		          		if ($dados->tipo == "CONSULTA") {
 		          			echo ",color: 'silver'";
 		          		}
 		        		echo '},';
 				  		}
-				  		echo"]";
-							?>
-				});
+				  		echo ']';
+					?>
+			 		});
         calendar.render();
       });
 
 		</script>
 </head>
 <body>
-		<form method="post" action="../control/agenda.controller.php?evento=cadastrar">
-    <table>
-      <tbody>
-        <tr>
-          <th>Paciente*</th>
-          <th style='width:1%'></th>
-          <th>Início</th>
-          <th style='width:1%'></th>
-          <th>Fim</th>
-          <th style='width:1%'></th>
-          <th>Tipo</th>
-          <th style='width:1%'></th>
-          <th>Ação</th>
-        </tr>
-        <tr>
-          <td>
-          	<select id="etpaciente" class ='form-control select' name ='etpaciente'>
-          		<?php 
-          		foreach ($listapaciente as $dados2){
-          			echo '<option value ="'.$dados2->nome.'">'.$dados2->nome.'</option>';
-          		}
+	<table>
+		<tbody>
+			<tr>
+				<th class="col-md-4" style="width: 250px; ">Paciente*</th>
+				<th style='width:1%'></th>
+				<th>Início</th>
+				<th style='width:1%'></th>
+				<th>Fim</th>
+				<th style='width:1%'></th>
+				<th>Tipo</th>
+				<th style='width:1%'></th>
+				<th>Ações</th>
+			</tr>
+			<tr>
+				<td style="width: 250px; ">
+					<select required id="etpaciente" class ='form-control  select' name ='etpaciente'>
+						<option selected disabled value="">Selecione o paciente</option>
+						<?php 
+						foreach ($listapaciente as $dados2){
+							echo '<option value ="'.$dados2->nome.'">'.$dados2->nome.'</option>';
+						}
 
-          		?>
-	        	</select>
-          </td>
-          <td style='width:1%'></td>
-          <td >
-            <input id="etinicio" class='form-control' name='etinicio' required type='datetime-local' >
-          </td>
-          <td style='width:1%'></td>
-          <td >
-            <input id="etfim" class='form-control' name='etfim' required type='datetime-local' >
-          </td>
-          <td style='width:1%'></td>
-          <td>
-          	<select id="ettipo" class ='form-control select' name ='ettipo'>
-		        	<option value ='Atendimento'>Atendimento</option>
-		        	<option value ='Consulta'>Consulta</option>
-	        	</select>
-          </td>
-          <td style='width:1%'></td>
-          <td>
-            <a id="btagendar" href="" class='btn btn-success'>Agendar</a>
-            <a href='selecaoDentista.php' class='btn btn-danger' role='button'>Cancelar</a>
-          </td>
-          <td style='width:1%'></td>
-          <td>
-            <input class='form-control' name='situacao' type='hidden' >
-            <input id="etfuncionario" type="hidden" name="etfuncionario"<?php echo "value='".$dentista."'"; ?> >
-            <input type="hidden" name="etprotocolo" value="0" >
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </form>
+						?>
+					</select>
+				</td>
+				<td style='width:1%'></td>
+				<td >
+					<input required id="etinicio" class='form-control' name='etinicio' required type='datetime-local' >
+				</td>
+				<td style='width:1%'></td>
+				<td >
+					<input required id="etfim" class='form-control' name='etfim' required type='datetime-local' >
+				</td>
+				<td style='width:1%'></td>
+				<td>
+					<select id="ettipo" class ='form-control select' name ='ettipo'>
+						<option value ='Atendimento'>Atendimento</option>
+						<option value ='Consulta'>Consulta</option>
+					</select>
+				</td>
+				<td style='width:1%'></td>
+				<td>
+					<button id="btagendar" class='btn btn-success'>Agendar</button>
+					<a href='selecaoDentista.php' class='btn btn-danger' role='button'>Voltar</a>
+					<button id="btAtualizarAgenda" class='btn btn-primary'>At. Agenda</button>
+				</td>
+				<td style='width:1%'></td>
+				<td>
+					<input class='form-control' name='situacao' type='hidden' >
+					<input id="etfuncionario" type="hidden" name="etfuncionario"<?php echo "value='".$dentista."'"; ?> >
+					<input type="hidden" name="etprotocolo" value="0" >
+				</td>
+			</tr>
+		</tbody>
+	</table>
   <br>
 		<div id='calendar'></div>
 
@@ -174,30 +176,56 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 
 		<script>
+			//cadastrar nova agenda
 			$("#btagendar").click(function(){
 				var funcionario = $("#etfuncionario").val();
-				//alert (funcionario);
 				var paciente = $("#etpaciente option:selected").val();
-				//alert (paciente);
 				var inicio = $("#etinicio").val();
-				//alert (inicio);
 				var fim = $("#etfim").val();
-				//alert (fim);
-				var tipo = $("#ettipo option:selected").val();
-				//alert (tipo);
-				$.ajax({
-					method: "POST",
-					url: "../control/agenda.controller.php?evento=cadastrar",
-					data: {
-						etfuncionario: funcionario,
-						etinicio: inicio,
-						etfim: fim,
-						ettipo: tipo,
-						etpaciente: paciente,
-						etprotocolo: '0',
-						etstatus:'Ativo'}
-				});
+				var tipo = $("#ettipo option:selected").val();		
+				if(verificarDatas()){
+					$.ajax({
+						method: "POST",
+						url: "../control/agenda.controller.php?evento=cadastrar",
+						data: {
+							etfuncionario: funcionario,
+							etinicio: inicio,
+							etfim: fim,
+							ettipo: tipo,
+							etpaciente: paciente,
+							etprotocolo: '0',
+							etstatus:'Ativo'
+						},
+						success: function(retorno){
+							alert('Agendado!');
+							window.location = 'calendario.php?etfunc='+funcionario;
+						},
+						fail: function(){
+							alert('Erro ao agendar!');
+							window.location = 'calendario.php?etfunc='+funcionario;
+						}
+					});
+				}else{
+					alert("Data fim não pode ser igual a Inicial");
+				}														
 			});
+			//botao de atualizar o frame
+			$("#btAtualizarAgenda").click(function(){
+				var nomefuncionario = $("#etfuncionario").val();
+				window.location = 'calendario.php?etfunc='+nomefuncionario;
+			});
+			//ajusta campo data fim igual ao inicio
+			$("#etinicio").change(function(){
+				$("#etfim").val($("#etinicio").val());
+			});
+			//verificar datas
+			function verificarDatas(){
+				if($("#etfim").val() <= $("#etinicio").val()){
+					return false;
+				}else{
+					return true;
+				}
+			}
 		</script>
 </body>
 </html>

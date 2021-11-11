@@ -2,6 +2,7 @@
 header('Content-Type: text/html; charset=utf-8');
 
 class Agenda{
+	private $id;
 	private $funcionario;
 	private $inicio;
 	private $fim;
@@ -31,7 +32,7 @@ class Agenda{
 
 	public function buscarAgenda(){
 		if($this->funcionario != null){
-			$sql = "SELECT * FROM agenda WHERE funcionario like '{$this->funcionario}%' and inicio BETWEEN '{$this->inicio}' and '{$this->fim}'";
+			$sql = "SELECT * FROM agenda WHERE funcionario like '{$this->funcionario}%' and inicio BETWEEN '{$this->inicio}' and '{$this->fim}' and status <> 'EXCLUIDO'";
 
 			$res = ConexaoBD::executar($sql);
 			$lista = null;
@@ -41,6 +42,33 @@ class Agenda{
 				}
 			}
 			return $lista;
+		}
+		if($this->id != null){
+			$sql = "SELECT * FROM agenda WHERE id like '{$this->id}'";
+
+			$res = ConexaoBD::executar($sql);
+			$lista = null;
+			while($objeto = mysqli_fetch_object($res)){
+				if ($objeto != null) {
+					$lista[] = $objeto;
+				}
+			}
+			return $lista;
+		}
+	}
+
+	public function editar(){
+		$sql = "UPDATE agenda SET
+		inicio = '{$this->inicio}',
+		fim = '{$this->fim}',
+		tipo = '{$this->tipo}',
+		status = '{$this->status}'
+		WHERE id = '{$this->id}'";
+
+		if(ConexaoBD::executar($sql) !== null){
+			return true;
+		}else{
+			return false;
 		}
 	}
 }

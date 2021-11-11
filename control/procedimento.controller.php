@@ -15,11 +15,11 @@ class ProcedimentoController{
 	
 		$procedimento = new Procedimento();
 		$procedimento->set('nome',mb_strtoupper($_POST['etnome']),'UTF-8');
-		$procedimento->set('valor',str_replace(',','.',$_POST['etvalor']));
-		$procedimento->set('valmin',str_replace(',','.',$_POST['etvalmin']));
-		$procedimento->set('valmax',str_replace(',','.',$_POST['etvalmax']));
+		$procedimento->set('valor',str_replace(',','.',str_replace('.','',$_POST['etvalor'])));
+		$procedimento->set('valmin',str_replace(',','.',str_replace('.','',$_POST['etvalmin'])));
+		$procedimento->set('valmax',str_replace(',','.',str_replace('.','',$_POST['etvalmax'])));
 		$procedimento->set('especialidade',mb_strtoupper($_POST['etespec']),'UTF-8');
-		$procedimento->set('custo',str_replace(',','.',$_POST['etcusto']));
+		$procedimento->set('custo',str_replace(',','.',str_replace('.','',$_POST['etcusto'])));
 
 		if ($procedimento->cadastrarProcedimento()) {
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
@@ -56,18 +56,18 @@ class ProcedimentoController{
 		$procedimento = new Procedimento();
 		$procedimento->set('id',$_POST['etcod']);
 		$procedimento->set('nome',mb_strtoupper($_POST['etnome']),'UTF-8');
-		$procedimento->set('valor',str_replace(',','.',$_POST['etvalor']));
-		$procedimento->set('valmin',str_replace(',','.',$_POST['etvalmin']));
-		$procedimento->set('valmax',str_replace(',','.',$_POST['etvalmax']));
+		$procedimento->set('valor',str_replace(',','.',str_replace('.','',$_POST['etvalor'])));
+		$procedimento->set('valmin',str_replace(',','.',str_replace('.','',$_POST['etvalmin'])));
+		$procedimento->set('valmax',str_replace(',','.',str_replace('.','',$_POST['etvalmax'])));
 		$procedimento->set('especialidade',mb_strtoupper($_POST['etespec']),'UTF-8');
-		$procedimento->set('custo',str_replace(',','.',$_POST['etcusto']));
+		$procedimento->set('custo',str_replace(',','.',str_replace('.','',$_POST['etcusto'])));
 
 		if($procedimento->editarProcedimento()){
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
-			header("refresh:1;url=../view/menuprocedimento.php");
+			header("refresh:1;url=../view/buscarprocedimento.php");
 		}else{
 			echo "<script>alert('Erro ao cadastrar!');</script>";
-			header("refresh:1;url=../view/menuprocedimento.php");
+			header("refresh:1;url=../view/buscarprocedimento.php");
 		}
 
 		ConexaoBD::desconecta();
@@ -77,5 +77,3 @@ class ProcedimentoController{
 }
 
 $controller = new ProcedimentoController();
-
-?>

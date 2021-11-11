@@ -66,7 +66,7 @@ foreach ($saldopaciente as $dados1){
           </td>
           <td style='width:1%'></td>
           <td>
-            <select class ='form-control select' name="ettipo">
+            <select required class ='form-control select' name="ettipo">
               <option value="" selected disabled>Selecione...</option>
               <option value="DINHEIRO">Dinheiro</option>
               <option value="PIX">Pix</option>

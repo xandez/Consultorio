@@ -13,17 +13,17 @@ class PagamentoController{
 
     $pagamento = new Pagamento();
     $pagamento->set('cpf',$_POST['etcpf']);
-    $pagamento->set('valor',str_replace(',','.',$_POST['etvalor']));
+    $pagamento->set('valor',str_replace(',','.',str_replace('.','',$_POST['etvalor'])));
     $pagamento->set('data',$_POST['etdata']);
     $pagamento->set('datalanc',$_POST['etdatalanc']);
     $pagamento->set('tipo',mb_strtoupper($_POST['ettipo']),'UTF-8');
 
     if ($pagamento->cadastrar()) {
       echo "<script>alert('Operação realizada com sucesso.');</script>";
-			header("refresh:1;url=../view/buscarpaciente.php");
+			header("refresh:1;url=../view/novopagamento.php?etcpf=".$_POST['etcpf']);
     }else{
       echo "<script>alert('Erro ao cadastrar!');</script>";
-			header("refresh:1;url=../view/novopagamento.php");
+			header("refresh:1;url=../view/novopagamento.php?etcpf=".$_POST['etcpf']);
     }
 
     ConexaoBD::desconecta();

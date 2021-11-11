@@ -45,7 +45,9 @@ $lista = $func->listarDadosFuncionario('Dentista','','');
           <td style='width:1%'></td>
           <td >
             <input type='submit' class='btn btn-success' value='Buscar'>
-            <a href='' id="btcancelar"  class='btn btn-danger' role='button'>Cancelar</a>
+            <!--
+              <a href='' id="btcancelar"  class='btn btn-danger' role='button'>Cancelar</a>
+          -->
           </td>
         </tr>
       </tbody>
