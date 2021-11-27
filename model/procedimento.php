@@ -37,6 +37,9 @@ class Procedimento{
 	}
 
 	public function buscarProcedimento(){
+		if ($this->nome == null && $this->id == null){
+			$sql = "select * from procedimento order by nome asc";
+		}
 		if ($this->nome != null) {
 			$sql = "select * from procedimento where nome like '{$this->nome}%'";
 		}

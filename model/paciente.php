@@ -68,34 +68,17 @@ class Paciente{
 
 	public function buscarPaciente(){
 		if ($this->nome == null && $this->cpf == null) {
-			$sql = "SELECT * FROM paciente";
-
-			$res = ConexaoBD::executar($sql);
-			$lista = null;
-			while ($objeto = mysqli_fetch_object($res)) {
-				if ($objeto != null) {
-					$lista[] = $objeto;
-				}
-			}
-			return $lista;
+			$sql = "SELECT * FROM paciente order by nome";
 		}
 		if($this->nome != null){
-			$sql = "SELECT * FROM paciente WHERE nome like '{$this->nome}%'";
-
-			$res = ConexaoBD::executar($sql);
-			$lista = null;
-			while ($objeto = mysqli_fetch_object($res)) {
-				if ($objeto != null) {
-					$lista[] = $objeto;
-				}
-			}
-			return $lista;
+			$sql = "SELECT * FROM paciente WHERE nome like '{$this->nome}%' order by nome";
 		}
+
 		if($this->cpf != null){
-			$sql = "SELECT * FROM paciente WHERE cpf like '{$this->cpf}%'";
+			$sql = "SELECT * FROM paciente WHERE cpf like '{$this->cpf}%' order by nome";
+		}
 
-
-			$res = ConexaoBD::executar($sql);
+		$res = ConexaoBD::executar($sql);
 			$lista = null;
 			while ($objeto = mysqli_fetch_object($res)) {
 				if($objeto != null){
@@ -103,7 +86,6 @@ class Paciente{
 				}
 			}
 			return $lista;
-		}
 	}
 }
 

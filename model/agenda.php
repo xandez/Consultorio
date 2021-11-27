@@ -32,7 +32,7 @@ class Agenda{
 
 	public function buscarAgenda(){
 		if($this->funcionario != null){
-			$sql = "SELECT * FROM agenda WHERE funcionario like '{$this->funcionario}%' and inicio BETWEEN '{$this->inicio}' and '{$this->fim}' and status <> 'EXCLUIDO'";
+			$sql = "SELECT agenda.*, paciente.nome FROM agenda INNER JOIN paciente on agenda.paciente = paciente.cpf WHERE funcionario like '{$this->funcionario}%' and inicio BETWEEN '{$this->inicio}' and '{$this->fim}' and status <> 'EXCLUIDO'";
 
 			$res = ConexaoBD::executar($sql);
 			$lista = null;
@@ -44,7 +44,7 @@ class Agenda{
 			return $lista;
 		}
 		if($this->id != null){
-			$sql = "SELECT * FROM agenda WHERE id like '{$this->id}'";
+			$sql = "SELECT agenda.*, paciente.nome FROM agenda INNER JOIN paciente on agenda.paciente = paciente.cpf WHERE id like '{$this->id}'";
 
 			$res = ConexaoBD::executar($sql);
 			$lista = null;

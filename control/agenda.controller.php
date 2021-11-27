@@ -17,7 +17,7 @@ class AgendaController{
 		$agenda->set('inicio',$_POST['etinicio']);
 		$agenda->set('fim',$_POST['etfim']);
 		$agenda->set('tipo',mb_strtoupper($_POST['ettipo']),'UTF-8');
-		$agenda->set('paciente',mb_strtoupper($_POST['etpaciente']),'UTF-8');
+		$agenda->set('paciente',$_POST['etpaciente']);
 		$agenda->set('protocolo',$_POST['etprotocolo']);
 		$agenda->set('status',mb_strtoupper($_POST['etstatus']),'UTF-8');
 

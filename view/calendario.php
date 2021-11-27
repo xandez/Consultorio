@@ -91,7 +91,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 				  	echo 'events: [';
 				  		foreach($listaagenda as $dados){
 				  			echo"{
-				  				title: 'Paciente: ".$dados->paciente."',
+				  				title: 'Paciente: ".$dados->nome."',
 		          		start: '".$dados->inicio."',
 		          		end: '".$dados->fim."',
 									url: 'listaragenda.php?id=".$dados->id."'";
@@ -128,7 +128,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 						<option selected disabled value="">Selecione o paciente</option>
 						<?php 
 						foreach ($listapaciente as $dados2){
-							echo '<option value ="'.$dados2->nome.'">'.$dados2->nome.'</option>';
+							echo '<option value ="'.$dados2->cpf.'">'.$dados2->nome.'</option>';
 						}
 
 						?>

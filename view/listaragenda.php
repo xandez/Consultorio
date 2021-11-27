@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('America/Belem');
 error_reporting(0);
 
 if ($_SESSION['nome'] == null) {
@@ -8,22 +9,43 @@ if ($_SESSION['nome'] == null) {
 
 require_once '../control/agenda.controller.php';
 require_once '../control/paciente.controller.php';
+require_once '../control/procedimento.controller.php';
+require_once '../control/atendimento.controller.php';
 
+//pega os dados da agenda selecioanda pelo ID;
 $idagenda = $_GET['id'];
-
-
 $agenda = new AgendaController();
 $lista = $agenda->listarAgenda($idagenda);
 foreach ($lista as $dados) {
 };
+
 //ajustar tipo de data do banco para exeibir
 $inicio = str_replace(' ', 'T', $dados->inicio);
 $fim = str_replace(' ', 'T', $dados->fim);
 
+//lista os dados do paciente;
 $paciente = new PacienteController();
-$dadosPaciente = $paciente->listarDadosPaciente($dados->nome, "");
+$dadosPaciente = $paciente->listarDadosPaciente("", $dados->paciente);
 foreach ($dadosPaciente as $dados1) {
 };
+
+//lista o nome dos procedimentos cadastrados.
+$procedimento = new ProcedimentoController();
+$dadosprocedimento = $procedimento->listarProcedimento("", "");
+
+//pega o numero dos dentes que tem procedimento em aberto
+$dentes = new AtendimentoController();
+$listadente = $dentes->denteProcedimento($dados->paciente);
+foreach ($listadente as $listadedentes) {
+  $arraydentes[] = $listadedentes->dente;
+};
+// if(in_array("21",$arraydentes)){
+//   echo "Achou o dente!";
+// }else{
+//   echo "Não achou!";
+// }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -62,6 +84,7 @@ foreach ($dadosPaciente as $dados1) {
     <span class="" href="#">Detalhe agenda: <?php echo $dados->funcionario ?></span>
     <a class="btn" href="index.php?link=1" role="button"><img src="" alt=""></a>
   </nav>
+  <br>
 
   <div class="container">
     <div class="row">
@@ -84,20 +107,20 @@ foreach ($dadosPaciente as $dados1) {
             </tr>
             <tr class="campos1">
               <td>
-                <input disabled readonly id="etpaciente" class='form-control ' name='etpaciente' value="<?php echo $dados->paciente ?>">
+                <input disabled readonly data-cpf="<?php echo $dados->paciente ?>" id="etpaciente" class='form-control form-control-sm' name='etpaciente' value="<?php echo $dados->nome ?>">
                 </input>
               </td>
               <td style='width:1%'></td>
               <td>
-                <input style="width: 200px;" id="etinicio" class='form-control' name='etinicio' required type='datetime-local' value="<?php echo $inicio ?>">
+                <input style="width: 200px;" id="etinicio" class='form-control form-control-sm' name='etinicio' required type='datetime-local' value="<?php echo $inicio ?>">
               </td>
               <td style='width:1%'></td>
               <td>
-                <input style="width: 200px;" id="etfim" class='form-control' name='etfim' required type='datetime-local' value="<?php echo $fim ?>">
+                <input style="width: 200px;" id="etfim" class='form-control form-control-sm' name='etfim' required type='datetime-local' value="<?php echo $fim ?>">
               </td>
               <td style='width:1%'></td>
               <td>
-                <select id="ettipo" class='form-control select' name='ettipo'>
+                <select id="ettipo" class='form-control select form-control-sm' name='ettipo'>
                   <option value='<?php echo $dados->tipo ?>'><?php echo ucfirst(strtolower($dados->tipo)) ?></option>
                   <option value='Atendimento'>Atendimento</option>
                   <option value='Consulta'>Consulta</option>
@@ -105,7 +128,7 @@ foreach ($dadosPaciente as $dados1) {
               </td>
               <td style='width:1%'></td>
               <td>
-                <select id="etstatus" class='form-control select' name='etstatus'>
+                <select id="etstatus" class='form-control select form-control-sm' name='etstatus'>
                   <option value='<?php echo $dados->status ?>'><?php echo ucfirst(strtolower($dados->status)) ?></option>
                   <option value='ATIVO'>Atívo</option>
                   <option value='CONCLUIDO'>Concluído</option>
@@ -229,165 +252,392 @@ foreach ($dadosPaciente as $dados1) {
               <div class="accordion-body">
                 <ul class="list-group list-group-horizontal superior">
                   <li class="list-group-item">
-                    <button value="1" type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="18" type="button" class="btn btn-light">
+                      18
+                      <?php
+                      if (in_array("18", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button value="2" type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="17" type="button" class="btn btn-light">
+                      17
+                      <?php
+                      if (in_array("17", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="16" type="button" class="btn btn-light">
+                      16
+                      <?php
+                      if (in_array("16", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="15" type="button" class="btn btn-light">
+                      15
+                      <?php
+                      if (in_array("15", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="14" type="button" class="btn btn-light">
+                      14
+                      <?php
+                      if (in_array("14", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="13" type="button" class="btn btn-light">
+                      13
+                      <?php
+                      if (in_array("13", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="12" type="button" class="btn btn-light">
+                      12
+                      <?php
+                      if (in_array("12", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item" style="border-right: 2px solid;">
+                    <button value="11" type="button" class="btn btn-light">
+                      11
+                      <?php
+                      if (in_array("11", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="21" type="button" class="btn btn-light">
+                      21
+                      <?php
+                      if (in_array("21", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="22" type="button" class="btn btn-light">
+                      22
+                      <?php
+                      if (in_array("22", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="23" type="button" class="btn btn-light">
+                      23
+                      <?php
+                      if (in_array("23", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="24" type="button" class="btn btn-light">
+                      24
+                      <?php
+                      if (in_array("24", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="25" type="button" class="btn btn-light">
+                      25
+                      <?php
+                      if (in_array("25", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="26" type="button" class="btn btn-light">
+                      26
+                      <?php
+                      if (in_array("26", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="27" type="button" class="btn btn-light">
+                      27
+                      <?php
+                      if (in_array("27", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
-                    </button>
-                  </li>
-                  <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="28" type="button" class="btn btn-light">
+                      28
+                      <?php
+                      if (in_array("28", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
                     </button>
                   </li>
                 </ul>
+                <ul class="list-group list-group-horizontal" style="border-bottom: 2px solid;">
+                </ul>
+                <!--  -->
                 <ul class="list-group list-group-horizontal">
                   <li class="list-group-item">
-                    <button value="1" type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="48" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("48", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>48
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button value="2" type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="47" value="2" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("47", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>47
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="46" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("46", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>46
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="45" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("45", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>45
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="44" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("44", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>44
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="43" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("43", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>43
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="42" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("42", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>42
+                    </button>
+                  </li>
+                  <li class="list-group-item" style="border-right: 2px solid;">
+                    <button value="41" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("41", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>41
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="31" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("31", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>31
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="32" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("32", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>32
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="33" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("33", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>33
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="34" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("34", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>34
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="35" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("35", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>35
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="36" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("36", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>36
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="37" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("37", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>37
                     </button>
                   </li>
                   <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
-                    </button>
-                  </li>
-                  <li class="list-group-item">
-                    <button type="button" class="btn btn-light">
-                      <img src="./img/dentepbranco.png" alt="">
+                    <button value="38" type="button" class="btn btn-light">
+
+                      <?php
+                      if (in_array("38", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>38
                     </button>
                   </li>
                 </ul>
@@ -400,7 +650,7 @@ foreach ($dadosPaciente as $dados1) {
                 Incluir procedimento
               </button>
             </h2>
-            <div id="acordeon3" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+            <div id="acordeon3" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
               <div class="accordion-body">
                 <table>
                   <tbody>
@@ -417,23 +667,27 @@ foreach ($dadosPaciente as $dados1) {
                     </tr>
                     <tr>
                       <td>
-                        <input readonly type="number" style="width: 100px;" id="etdente" class='form-control ' name='etdente'>
+                        <input readonly type="number" style="width: 100px;" id="etdente" class='form-control form-control-sm' name='etdente'>
                         </input>
                       </td>
                       <td style='width:1%'></td>
                       <td>
-                        <select style="width: 300px;" id="etprocedimento" class='form-control select' name='etprocedimento'>
-                          <option value='Atendimento'>Atendimento</option>
-                          <option value='Consulta'>Consulta</option>
+                        <select id="etprocedimento" class='form-control select form-control-sm' name='etprocedimento'>
+                          <option selected disabled value=''>Selecione...</option>
+                          <?php
+                          foreach ($dadosprocedimento as $dados2) {
+                            echo "<option data-custo='" . $dados2->custo . "' value='" . $dados2->nome . "'>" . $dados2->nome . " Min:" . $dados2->valormin . "|Max:" . $dados2->valormax . "</option>";
+                          };
+                          ?>
                         </select>
                       </td>
                       <td style='width:1%'></td>
                       <td>
-                        <input id="etvalor" class='form-control' name='etvalor'>
+                        <input style="width: 100px;" required type="text" id="etvalor" class='form-control form-control-sm' name='etvalor' onkeypress="$(this).mask('00.000,00', {reverse: true});">
                       </td>
                       <td style='width:1%'></td>
                       <td>
-                        <select id="etsituacao" class='form-control select' name='etsituacao'>
+                        <select id="etsituacao" class='form-control select form-control-sm' name='etsituacao'>
                           <option value='Em andamento'>Em andamento</option>
                           <option selected value='Pendente'>Pendente</option>
                           <option value='Realizado'>Realizado</option>
@@ -441,11 +695,13 @@ foreach ($dadosPaciente as $dados1) {
                       </td>
                       <td style='width:1%'></td>
                       <td>
-                        <button id="btagendar" href="#" class='btn btn-success'>Inserir</button>
+                        <button id="btinserir" href="#" class='btn btn-success btn-sm'>Inserir</button>
                       </td>
                       <td>
-                        <input class='form-control' name='situacao' type='hidden'>
-                        <input id="etid" type="hidden" name="etid" value="<?php echo $dados->id ?>">
+                        <input id="etdata" type="hidden" name="etcusto" <?php echo "value='" . date('Y-m-d') . "'"; ?>>
+                        <input id="etcusto" type="hidden" name="etcusto" value="">
+                        <input id="etfuncionario" type="hidden" name="etcusto" value="<?php echo $dados->funcionario ?>">
+
                       </td>
                     </tr>
                   </tbody>
@@ -455,8 +711,7 @@ foreach ($dadosPaciente as $dados1) {
           </div>
         </div>
         <!-- iframe -->
-        <iframe src="" height="100%" width="100%" frameborder="0">
-
+        <iframe id="frameatendimento" src="listaratendimento.php" height="100%" width="100%" frameborder="0">
         </iframe>
       </div>
       <!--  -->
@@ -468,11 +723,15 @@ foreach ($dadosPaciente as $dados1) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 
   <script>
     let btatualizar = $("#btagendar");
     let btcancelar = $("#btcancelar");
+    let btinserir = $("#btinserir");
 
     //esconder botões ao carregar pagina
     $(".acoes").hide();
@@ -512,7 +771,6 @@ foreach ($dadosPaciente as $dados1) {
       var fim = $("#etfim").val();
       var tipo = $("#ettipo option:selected").val();
       var status = $("#etstatus option:selected").val();
-      console.log(id, inicio, fim, tipo, status);
       if (verificarDatas()) {
         $.ajax({
           method: "POST",
@@ -524,7 +782,7 @@ foreach ($dadosPaciente as $dados1) {
             ettipo: tipo,
             etstatus: status
           },
-          success: function(retorno) {
+          success: function() {
             alert('Agenda atualizada!');
             window.location.reload();
           },
@@ -551,6 +809,64 @@ foreach ($dadosPaciente as $dados1) {
         return true;
       }
     }
+
+    //select procedimento
+    var procedimento = $("#etprocedimento");
+    procedimento.on('change', function() {
+      var custo = $("#etprocedimento option:selected").data('custo');
+      var selecionado = $("#etprocedimento option:selected").text();
+      var min = selecionado.substring(selecionado.indexOf("Min:") + 4, selecionado.indexOf("|"));
+      var max = selecionado.substring(selecionado.indexOf("Max:") + 4);
+
+      //mudar valor do imput custo
+      $("#etcusto").val(custo);
+
+    });
+
+    //inserir procedimento
+    btinserir.click(function() {
+      var selecionado = $("#etprocedimento option:selected").text();
+      var min = selecionado.substring(selecionado.indexOf("Min:") + 4, selecionado.indexOf("|"));
+      var max = selecionado.substring(selecionado.indexOf("Max:") + 4);
+      var paciente = $("#etpaciente").data('cpf');
+      var dentista = $("#etfuncionario").val();
+      var dente = $("#etdente").val();
+      var procedimento = $("#etprocedimento option:selected").val();
+      var valor = $("#etvalor").val();
+      var custo = $("#etcusto").val();
+      var situacao = $("#etsituacao option:selected").val();
+      var dt = $("#etdata").val();
+
+      if (paciente == '' || dentista == '' || dente == '' || procedimento == '' || valor == '' || custo == '' || situacao == '' || dt == '') {
+        alert("Preencher todos os campos!");
+      } else {
+        if (parseFloat(valor) >= parseFloat(min) && parseFloat(valor) <= parseFloat(max)) {
+          $.ajax({
+            method: "POST",
+            url: "../control/atendimento.controller.php?evento=cadastrar",
+            data: {
+              etpaciente: paciente,
+              etdentista: dentista,
+              etdente: dente,
+              etprocedimento: procedimento,
+              etvalor: valor,
+              etcusto: custo,
+              etsituacao: situacao,
+              etdt: dt
+            },
+            success: function() {
+              alert('Inserido!');
+              window.location.reload();
+            },
+            fail: function() {
+              alert('Erro ao inserir!');
+            }
+          });
+        } else {
+          alert("Valor fora da faixa!");
+        }
+      }
+    });
 
     //acordeon1
     var btacordeon = $("#btAcordeon1");
@@ -586,8 +902,11 @@ foreach ($dadosPaciente as $dados1) {
     //selecao do dente
     var ndente = $("#etdente");
     $("button.btn-light").click(function() {
-      //alert($(this).val());
+      //muda valor do campo dente
       ndente.val($(this).val());
+      // envia informação do dente para listar atenidmentos cadastrados
+      var paciente = $("#etpaciente").data('cpf');
+      $("#frameatendimento").attr('src', 'listaratendimento.php?etdente=' + $(this).val() + '&etpaciente=' + paciente);
     });
   </script>
 </body>
