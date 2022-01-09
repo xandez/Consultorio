@@ -32,6 +32,23 @@ class AtendimentoController{
 
   }
 
+  public function editar(){
+    ConexaoBD::conectar();
+
+    $atendimento = new Atendimento();
+    $atendimento->set('id', $_POST['etid']);
+    $atendimento->set('situacao', $_POST['etsituacao']);
+    $atendimento->set('dt', $_POST['etdata']);
+
+    if($atendimento->editar()){
+      echo "<script>alert('Operação realizada com sucesso.');</script>";
+    }else{
+      echo "<script>alert('Erro ao inserir procedimento!');</script>";
+    }
+
+    ConexaoBD::desconecta();
+  }
+
   public function listar($paciente,$dente){
     ConexaoBD::conectar();
 

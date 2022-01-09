@@ -83,10 +83,10 @@ class PacienteController{
 
 		if ($paciente->editarPaciente()) {
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
-			header("refresh:1;url=../view/menupaciente.php");
+			header("refresh:1;url=../view/buscarpaciente.php");
 		}else{
 			echo "<script>alert('Erro ao cadastrar!');</script>";
-			header("refresh:1;url=../view/menupaciente.php");
+			header("refresh:1;url=../view/buscarpaciente.php");
 		}
 
 		ConexaoBD::desconecta();

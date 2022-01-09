@@ -11,6 +11,7 @@ require_once '../control/agenda.controller.php';
 require_once '../control/paciente.controller.php';
 require_once '../control/procedimento.controller.php';
 require_once '../control/atendimento.controller.php';
+require_once '../control/pagamento.controller.php';
 
 //pega os dados da agenda selecioanda pelo ID;
 $idagenda = $_GET['id'];
@@ -18,6 +19,13 @@ $agenda = new AgendaController();
 $lista = $agenda->listarAgenda($idagenda);
 foreach ($lista as $dados) {
 };
+
+//pega o saldo do paciente;
+$cpf = $dados->paciente;
+$saldo = new PagamentoController();
+$saldopaciente = $saldo->listarSaldo($cpf);
+foreach ($saldopaciente as $saldomostrar) {
+}
 
 //ajustar tipo de data do banco para exeibir
 $inicio = str_replace(' ', 'T', $dados->inicio);
@@ -104,6 +112,8 @@ foreach ($listadente as $listadedentes) {
               <th>Tipo</th>
               <th style='width:1%'></th>
               <th>Status</th>
+              <th style='width:1%'></th>
+              <th>Saldo</th>
             </tr>
             <tr class="campos1">
               <td>
@@ -112,11 +122,11 @@ foreach ($listadente as $listadedentes) {
               </td>
               <td style='width:1%'></td>
               <td>
-                <input style="width: 200px;" id="etinicio" class='form-control form-control-sm' name='etinicio' required type='datetime-local' value="<?php echo $inicio ?>">
+                <input style="width: 175px;" id="etinicio" class='form-control form-control-sm' name='etinicio' required type='datetime-local' value="<?php echo $inicio ?>">
               </td>
               <td style='width:1%'></td>
               <td>
-                <input style="width: 200px;" id="etfim" class='form-control form-control-sm' name='etfim' required type='datetime-local' value="<?php echo $fim ?>">
+                <input style="width: 175px;" id="etfim" class='form-control form-control-sm' name='etfim' required type='datetime-local' value="<?php echo $fim ?>">
               </td>
               <td style='width:1%'></td>
               <td>
@@ -134,6 +144,10 @@ foreach ($listadente as $listadedentes) {
                   <option value='CONCLUIDO'>Concluído</option>
                   <option value='EXCLUIDO'>Excluído</option>
                 </select>
+              </td>
+              <td style='width:1%'></td>
+              <td>
+                <input style="width: 75px;" disabled class='form-control form-control-sm' name='etSaldo' value="<?php echo $saldomostrar->saldo ?>">
               </td>
               <td style='width:1%'></td>
               <td>
@@ -248,8 +262,130 @@ foreach ($listadente as $listadedentes) {
                 Odontograma
               </button>
             </h2>
-            <div id="acordeon2" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+            <div id="acordeon2" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
               <div class="accordion-body">
+                <ul class="list-group list-group-horizontal superior" style="justify-content: center; padding-left: 3.3px;">
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="55" type="button" class="btn btn-light">
+                      55<br>
+                      <?php
+                      if (in_array("55", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="54" type="button" class="btn btn-light">
+                      54<br>
+                      <?php
+                      if (in_array("54", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="53" type="button" class="btn btn-light">
+                      53<br>
+                      <?php
+                      if (in_array("53", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="52" type="button" class="btn btn-light">
+                      52<br>
+                      <?php
+                      if (in_array("52", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item" style="border-right: 2px solid;">
+                    <button style="font-size: 12px;" value="51" type="button" class="btn btn-light">
+                      51<br>
+                      <?php
+                      if (in_array("51", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="61" type="button" class="btn btn-light">
+                      61<br>
+                      <?php
+                      if (in_array("61", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="62" type="button" class="btn btn-light">
+                      62<br>
+                      <?php
+                      if (in_array("62", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="63" type="button" class="btn btn-light">
+                      63<br>
+                      <?php
+                      if (in_array("63", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="64" type="button" class="btn btn-light">
+                      64<br>
+                      <?php
+                      if (in_array("64", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="65" type="button" class="btn btn-light">
+                      65<br>
+                      <?php
+                      if (in_array("65", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                </ul>
                 <ul class="list-group list-group-horizontal superior">
                   <li class="list-group-item">
                     <button value="18" type="button" class="btn btn-light">
@@ -641,6 +777,128 @@ foreach ($listadente as $listadedentes) {
                     </button>
                   </li>
                 </ul>
+                <ul class="list-group list-group-horizontal" style="justify-content: center; padding-left: 3.3px;">
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="85" type="button" class="btn btn-light">
+                      85<br>
+                      <?php
+                      if (in_array("85", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="84" type="button" class="btn btn-light">
+                      84<br>
+                      <?php
+                      if (in_array("84", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="83" type="button" class="btn btn-light">
+                      83<br>
+                      <?php
+                      if (in_array("83", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="82" type="button" class="btn btn-light">
+                      82<br>
+                      <?php
+                      if (in_array("82", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item" style="border-right: 2px solid;">
+                    <button style="font-size: 12px;" value="81" type="button" class="btn btn-light">
+                      81<br>
+                      <?php
+                      if (in_array("81", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="71" type="button" class="btn btn-light">
+                      71<br>
+                      <?php
+                      if (in_array("71", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="72" type="button" class="btn btn-light">
+                      72<br>
+                      <?php
+                      if (in_array("72", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="73" type="button" class="btn btn-light">
+                      73<br>
+                      <?php
+                      if (in_array("73", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="74" type="button" class="btn btn-light">
+                      74<br>
+                      <?php
+                      if (in_array("74", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                  <li class="list-group-item">
+                    <button style="font-size: 12px;" value="75" type="button" class="btn btn-light">
+                      75<br>
+                      <?php
+                      if (in_array("75", $arraydentes)) {
+                        echo "<img src='./img/denteppreto.png'>";
+                      } else {
+                        echo "<img src='./img/dentepbranco.png'>";
+                      }
+                      ?>
+                    </button>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -719,6 +977,8 @@ foreach ($listadente as $listadedentes) {
       </div>
     </div>
   </div>
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>

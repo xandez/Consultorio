@@ -26,7 +26,9 @@ class Pagamento{
   }
   
   public function saldo(){
-    $sql = "SELECT cpf, SUM(valor) as saldo FROM pagamento WHERE cpf like '{$this->cpf}' GROUP BY cpf";
+    // $sql = "SELECT cpf, SUM(valor) as saldo FROM pagamento WHERE cpf like '{$this->cpf}' GROUP BY cpf";
+
+    $sql = "SELECT (SELECT SUM(pagamento.valor) FROM pagamento WHERE pagamento.cpf = '{$this->cpf}') -IFNULL((SELECT SUM(atendimento.valor) FROM atendimento WHERE atendimento.paciente = '{$this->cpf}' AND atendimento.situacao <> 'PENDENTE'),0) as saldo";
     
     $res = ConexaoBD::executar($sql);
     $lista = null;

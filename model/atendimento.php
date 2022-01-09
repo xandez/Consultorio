@@ -22,6 +22,20 @@ class Atendimento{
 
   public function cadastrar(){
     $sql = "INSERT INTO atendimento (paciente,dentista,dente,procedimento,valor,custo,situacao,dt) VALUES ('{$this->paciente}','{$this->dentista}','{$this->dente}','{$this->procedimento}','{$this->valor}','{$this->custo}','{$this->situacao}','{$this->dt}')";
+    
+    if(ConexaoBD::executar($sql) !== null){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public function editar(){
+    $sql = "UPDATE atendimento SET 
+    situacao = '{$this->situacao}',
+    dt = '{$this->dt}' 
+    WHERE id = '{$this->id}'";
+
     if(ConexaoBD::executar($sql) !== null){
       return true;
     }else{
