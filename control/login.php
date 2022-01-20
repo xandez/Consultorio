@@ -1,8 +1,8 @@
 <?php 
 	require_once '../Model/Conexao.php';
 
-	$usuario = $_POST['etUsuario'];
-	$senha 	 = $_POST['etSenha'];
+	$usuario = preg_replace('/[^[:alnum:]_]/','',$_POST['etUsuario']);
+	$senha 	 = preg_replace('/[^[:alnum:]_]/','',$_POST['etSenha']);
 	$entrar  = $_POST['entrar'];
 
 	ConexaoBD::conectar();

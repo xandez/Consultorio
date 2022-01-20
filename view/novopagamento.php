@@ -74,6 +74,7 @@ foreach ($saldopaciente as $dados1){
               <option value="CREDITO">Crédito</option>
             </select>
           </td>
+          <td style='width:1%'></td>
           <td>
             <input type="hidden" name="etdata" <?php echo "value='".date('Y-m-d H:i:s')."'"; ?>>
             <input type='submit' class='btn btn-success' value='Lançar'>
@@ -89,6 +90,15 @@ foreach ($saldopaciente as $dados1){
       </tbody>
     </table>
   </form>
+  <!-- Frame historico pagamento -->
+  <?php 
+  echo "<iframe src='listarrecibos.php?cpf=".$cpf."' frameborder='0' height='400px' width='83%'>" ;  
+  echo "</iframe>";
+  
+  ?>
+  
+
+  
 
   <iframe></iframe>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>

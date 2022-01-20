@@ -46,7 +46,40 @@ class PagamentoController{
     ConexaoBD::desconecta();
 
   }
+
+  public function listarRecibos($cpf){
+    ConexaoBD::conectar();
+
+    $recibo = new Pagamento();
+    $recibo->set('cpf',$cpf);
+
+    $dados = $recibo->recibo();
+
+    if($dados != null){
+      return $dados;
+    }else{
+      return null;
+    }
+
+    ConexaoBD::desconecta();
+  }
+
+  public function recibo($id){
+    ConexaoBD::conectar();
+
+    $recibo = new Pagamento();
+    $recibo->set('id',$id);
+
+    $dados = $recibo->reciboInd();
+    
+    if($dados != null){
+      return $dados;
+    }else{
+      return null;
+    }
+
+    ConexaoBD::desconecta();
+  }
+
 }
 $controller = new PagamentoController();
-
-?>

@@ -53,8 +53,6 @@ foreach ($listadente as $listadedentes) {
 //   echo "Não achou!";
 // }
 
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -82,6 +80,10 @@ foreach ($listadente as $listadedentes) {
 
     .list-group-item {
       padding: 0 !important;
+    }
+    #btAcordeon1,#btAcordeon2,#btAcordeon3{
+      font-weight: bold;
+      background-color: #e9ecef;
     }
   </style>
 
@@ -262,7 +264,7 @@ foreach ($listadente as $listadedentes) {
                 Odontograma
               </button>
             </h2>
-            <div id="acordeon2" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+            <div id="acordeon2" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
               <div class="accordion-body">
                 <ul class="list-group list-group-horizontal superior" style="justify-content: center; padding-left: 3.3px;">
                   <li class="list-group-item">
@@ -902,6 +904,7 @@ foreach ($listadente as $listadedentes) {
               </div>
             </div>
           </div>
+          <!-- Incluir Procedimento -->
           <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
               <button id="btAcordeon3" class="accordion-button collapsed" type="button" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -913,7 +916,7 @@ foreach ($listadente as $listadedentes) {
                 <table>
                   <tbody>
                     <tr>
-                      <th>Nº Dente*</th>
+                      <th>Dente*</th>
                       <th style='width:1%'></th>
                       <th>Procedimento</th>
                       <th style='width:1%'></th>
@@ -925,8 +928,9 @@ foreach ($listadente as $listadedentes) {
                     </tr>
                     <tr>
                       <td>
-                        <input readonly type="number" style="width: 100px;" id="etdente" class='form-control form-control-sm' name='etdente'>
+                        <input readonly type="number" style="width: 60px;" id="etdente" class='form-control form-control-sm' name='etdente'>
                         </input>
+                        
                       </td>
                       <td style='width:1%'></td>
                       <td>

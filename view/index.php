@@ -20,11 +20,18 @@
 	<html>
 	<head>
 		<meta charset="utf-8">
+		<link rel="shortcut icon" href="./img/icone.png">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Consultorio XX</title>
+		<title>Consultório Dr. Abigail Marinho</title>
 	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 	</head>
+	<style>
+		.modal-header{
+			background-color: #7B193F;
+			color: white;
+		}
+	</style>
 	<body>
 	    <div class="container">
 		    <div class="row">
@@ -33,16 +40,16 @@
 				    <div class="modal-dialog">
 						<div class="modal-content">
 					      <div class="modal-header">
-					        <h4>LOGIN DO RESPONSAVEL</h4>
+					        <h4>LOGIN DO RESPONSÁVEL</h4>
 					      </div>
 					      <div class="modal-body">
 					        <div class="row">
-					          <p class="text-muted">Para acessar a essa área, é necessario fazer login</p>  
+					          <p class="text-muted">Para acessar, é necessario fazer login</p>  
 					          <br>
 									<form method="POST" action="../control/login.php">
 										<div class="form-floating mb-3">
 										  <input type="text" required class="form-control" id="floatingInput" name="etUsuario" placeholder="name@example.com">
-										  <label for="floatingInput">Usuario</label>
+										  <label for="floatingInput">Usuário</label>
 										</div>
 										<div class="form-floating">
 										  <input type="password" required class="form-control" id="floatingPassword" name="etSenha" placeholder="Password">

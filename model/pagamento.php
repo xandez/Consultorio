@@ -42,6 +42,36 @@ class Pagamento{
     return $lista;
   }
 
+  public function recibo(){
+    $sql = "SELECT * FROM pagamento WHERE cpf = '{$this->cpf}' order by id desc";
+
+    $res = ConexaoBD::executar($sql);
+    $lista = null;
+    while ($objeto = mysqli_fetch_object($res)){
+      if($objeto != null){
+        $lista[] = $objeto;
+      }else{
+        $lista = null;
+      }
+    }
+    return $lista;
+  }
+
+  public function reciboInd(){
+    $sql = "SELECT pagamento.*, paciente.nome FROM pagamento INNER JOIN paciente WHERE pagamento.cpf = paciente.cpf and pagamento.id = '{$this->id}'";
+
+    $res = ConexaoBD::executar($sql);
+    $lista = null;
+    while ($objeto = mysqli_fetch_object($res)){
+      if($objeto != null){
+        $lista[] = $objeto;
+      }else{
+        $lista = null;
+      }
+    }
+    return $lista;
+  }
+
 }
 
 ?>

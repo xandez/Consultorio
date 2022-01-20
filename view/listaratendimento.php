@@ -23,13 +23,9 @@ $lista = $atendimento->listar($paciente, $dente);
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel=”stylesheet” href=”https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css”>
-
 </head>
 
 <body>
-  <div class="load">
-    Carregando...
-  </div>
   <table class='table table-sm'>
     <?php
     if ($lista != null) {
@@ -101,10 +97,6 @@ $lista = $atendimento->listar($paciente, $dente);
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 
   <script>
-    //carregamento da pagina
-    $(document).ready(function() {
-      $('.load').hide();
-    });
 
     // ação no botão salvar
     var btsalvar = $(".btsal");
