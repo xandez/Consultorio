@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 22-Dez-2021 às 22:32
+-- Generation Time: 21-Jan-2022 às 14:06
 -- Versão do servidor: 5.7.17
 -- PHP Version: 7.1.3
 
@@ -47,7 +47,11 @@ CREATE TABLE `agenda` (
 
 INSERT INTO `agenda` (`id`, `funcionario`, `inicio`, `fim`, `tipo`, `paciente`, `protocolo`, `status`) VALUES
 (10, 'ALEXANDRE RODOLFO', '2021-11-27 14:48:00', '2021-11-27 15:48:00', 'ATENDIMENTO', '798.797.987-79', 0, 'EXCLUIDO'),
-(9, 'ALEXANDRE RODOLFO', '2021-11-27 14:41:00', '2021-11-27 15:41:00', 'ATENDIMENTO', '052.713.193-85', 0, 'ATIVO');
+(9, 'ALEXANDRE RODOLFO', '2021-11-27 14:41:00', '2021-11-27 15:41:00', 'ATENDIMENTO', '052.713.193-85', 0, 'ATIVO'),
+(11, 'ALEXANDRE RODOLFO', '2021-12-23 08:41:00', '2021-12-23 09:41:00', 'ATENDIMENTO', '050.505.050-50', 0, 'ATIVO'),
+(12, 'ALEXANDRE RODOLFO', '2022-01-08 10:27:00', '2022-01-08 11:27:00', 'ATENDIMENTO', '050.505.050-50', 0, 'ATIVO'),
+(13, 'ALEXANDRE RODOLFO', '2022-01-13 09:47:00', '2022-01-13 10:47:00', 'ATENDIMENTO', '050.505.050-50', 0, 'ATIVO'),
+(14, 'ALEXANDRE RODOLFO', '2022-01-18 09:08:00', '2022-01-18 10:08:00', 'ATENDIMENTO', '050.505.050-50', 0, 'ATIVO');
 
 -- --------------------------------------------------------
 
@@ -74,7 +78,12 @@ CREATE TABLE `atendimento` (
 INSERT INTO `atendimento` (`id`, `paciente`, `dentista`, `dente`, `procedimento`, `valor`, `custo`, `situacao`, `dt`) VALUES
 (15, '052.713.193-85', 'ALEXANDRE RODOLFO', '11', 'RESTAURAÃ‡ÃƒO', '80.00', '10.00', 'PENDENTE', '2021-11-27'),
 (13, '798.797.987-79', 'ALEXANDRE RODOLFO', '14', 'RESTAURAÃ‡ÃƒO', '80.00', '10.00', 'PENDENTE', '2021-11-27'),
-(12, '052.713.193-85', 'ALEXANDRE RODOLFO', '45', 'LIMPEZA', '80.00', '0.00', 'PENDENTE', '2021-11-27');
+(12, '052.713.193-85', 'ALEXANDRE RODOLFO', '45', 'LIMPEZA', '80.00', '0.00', 'PENDENTE', '2021-11-27'),
+(16, '050.505.050-50', 'ALEXANDRE RODOLFO', '11', 'RESTAURAÃ‡ÃƒO', '50.00', '10.00', 'PENDENTE', '2021-12-23'),
+(17, '050.505.050-50', 'ALEXANDRE RODOLFO', '33', 'LIMPEZA', '120.00', '0.00', 'REALIZADO', '2022-01-08'),
+(18, '050.505.050-50', 'ALEXANDRE RODOLFO', '33', 'RESTAURAÃ‡ÃƒO', '80.00', '10.00', 'EM ANDAMENTO', '2022-01-08'),
+(19, '050.505.050-50', 'ALEXANDRE RODOLFO', '65', 'LIMPEZA', '80.00', '0.00', 'PENDENTE', '2022-01-08'),
+(20, '050.505.050-50', 'ALEXANDRE RODOLFO', '83', 'RESTAURAÃ‡ÃƒO', '50.00', '10.00', 'PENDENTE', '2022-01-08');
 
 -- --------------------------------------------------------
 
@@ -131,8 +140,8 @@ CREATE TABLE `paciente` (
 --
 
 INSERT INTO `paciente` (`nome`, `fone`, `idade`, `datanasc`, `sexo`, `endereco`, `cpf`, `rg`, `bairro`, `cidade`, `estado`, `civil`, `profissao`, `email`, `indicacao`, `obs`, `datacadastro`) VALUES
-('Cliente 122', '(99)01239-1239', 25, '1995-04-11', 'Masculino', 'rua aurora', '052.713.193-85', '01.231.093-2', 'parque das palmeiras', 'imperatriz', 'MA', 'casado', 'analista', 'alexrodolf@hotmail.com', 'nÃ£o', 'Sertaneja\r\nAÃ§Ã£o', '2021-09-30'),
-('Cliente 29', '(99)12323-1321', 26, '1995-07-11', 'Feminino', 'rua aurora', '052.713.123-13', '01.231.093-2', 'centro', 'imperatriz', 'MA', 'casado', 'analista', 'alexrodolf@hotmail.com', 'nÃ£o', 'teste', '2021-10-10'),
+('CLIENTE 1', '(99)01239-1239', 25, '1995-04-11', 'MASCULINO', 'RUA AURORA', '052.713.193-85', '01.231.093-2', 'PARQUE DAS PALMEIRAS', 'IMPERATRIZ', 'MA', 'CASADO', 'ANALISTA', 'ALEXRODOLF@HOTMAIL.COM', 'NÃƒO', 'SERTANEJA\r\nAÃ‡ÃƒO', '2021-09-30'),
+('CLIENTE 29 FULADO BELTRANO NOME GRANDE PARA TESTE', '(99)12323-1321', 26, '1995-07-11', 'FEMININO', 'RUA AURORA', '052.713.123-13', '01.231.093-2', 'CENTRO', 'IMPERATRIZ', 'MA', 'CASADO', 'ANALISTA', 'ALEXRODOLF@HOTMAIL.COM', 'NÃƒO', 'TESTE', '2021-10-10'),
 ('Abigail Marinho', '(12)33112-3315', 15, '1955-04-11', 'Feminino', 'Rua 2', '798.797.987-79', '97.123.912-8', 'centro', 'Imperatriz', 'MA', 'casado', 'Dentista', 'bibi@hotmail.com', 'nÃ£o', 'teste', '2021-10-16'),
 ('FULADO DE TAL', '(12)38129-0938', 29, '2021-11-27', 'MASCULINO', 'RUA TAL', '050.505.050-50', '51.615.425-6', 'CEN', 'BREJAO', 'MA', 'SOLTEIRO', 'NADA', 'FULANO@GMAIL.COM', 'NÃƒO', 'TESTE 32', '2021-11-27');
 
@@ -159,7 +168,11 @@ INSERT INTO `pagamento` (`id`, `cpf`, `valor`, `datalanc`, `data`, `tipo`) VALUE
 (1, '798.797.987-79', '5.00', '2021-11-15 13:01:00', '2021-11-15 14:01:01', 'DINHEIRO'),
 (2, '798.797.987-79', '10.00', '2021-11-15 13:03:00', '2021-11-15 13:03:10', 'PIX'),
 (3, '052.713.193-85', '250.00', '2021-11-27 15:58:00', '2021-11-27 15:58:15', 'DINHEIRO'),
-(4, '052.713.193-85', '50.00', '2021-11-27 15:59:00', '2021-11-27 15:58:37', 'PIX');
+(4, '052.713.193-85', '50.00', '2021-11-27 15:59:00', '2021-11-27 15:58:37', 'PIX'),
+(5, '050.505.050-50', '250.00', '2021-12-29 22:26:00', '2021-12-29 22:26:34', 'PIX'),
+(6, '052.713.123-13', '10.00', '2022-01-19 09:09:00', '2022-01-19 09:09:49', 'DINHEIRO'),
+(7, '052.713.123-13', '100.00', '2022-01-19 09:14:00', '2022-01-19 09:13:55', 'DEBITO'),
+(8, '052.713.123-13', '15.00', '2022-01-19 09:16:00', '2022-01-19 09:16:40', 'CREDITO');
 
 -- --------------------------------------------------------
 
@@ -260,17 +273,17 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `agenda`
 --
 ALTER TABLE `agenda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `atendimento`
 --
 ALTER TABLE `atendimento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `pagamento`
 --
 ALTER TABLE `pagamento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `procedimento`
 --
