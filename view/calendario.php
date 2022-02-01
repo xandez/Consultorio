@@ -42,6 +42,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 	<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/locales-all.min.js"></script>
+	<link rel="stylesheet" href="./css/calendario.css">
 	
 
 	<script type="text/javascript">
@@ -112,7 +113,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 	<table>
 		<tbody>
 			<tr>
-				<th class="col-md-4" style="width: 250px; ">Paciente*</th>
+				<th >Paciente*</th>
 				<th style='width:1%'></th>
 				<th>Início</th>
 				<th style='width:1%'></th>
@@ -123,8 +124,8 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 				<th>Ações</th>
 			</tr>
 			<tr>
-				<td style="width: 250px; ">
-					<select required id="etpaciente" class ='form-control  select' name ='etpaciente'>
+				<td>
+					<select required id="etpaciente" class ='form-control  select btn-sm' name ='etpaciente'>
 						<option selected disabled value="">Selecione o paciente</option>
 						<?php 
 						foreach ($listapaciente as $dados2){
@@ -136,28 +137,28 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 				</td>
 				<td style='width:1%'></td>
 				<td >
-					<input required id="etinicio" class='form-control' name='etinicio' required type='datetime-local' >
+					<input required id="etinicio" class='form-control btn-sm' name='etinicio' required type='datetime-local' >
 				</td>
 				<td style='width:1%'></td>
 				<td >
-					<input required id="etfim" class='form-control' name='etfim' required type='datetime-local' >
+					<input required id="etfim" class='form-control btn-sm' name='etfim' required type='datetime-local' >
 				</td>
 				<td style='width:1%'></td>
 				<td>
-					<select id="ettipo" class ='form-control select' name ='ettipo'>
+					<select id="ettipo" class ='form-control select btn-sm' name ='ettipo'>
 						<option value ='Atendimento'>Atendimento</option>
 						<option value ='Consulta'>Consulta</option>
 					</select>
 				</td>
 				<td style='width:1%'></td>
 				<td>
-					<button id="btagendar" class='btn btn-success'>Agendar</button>
-					<a href='selecaoDentista.php' class='btn btn-danger' role='button'>Voltar</a>
-					<button id="btAtualizarAgenda" class='btn btn-primary'>At. Agenda</button>
+					<button id="btagendar" class='btn btn-success btn-sm'>Agendar</button>
+					<a href='selecaoDentista.php' class='btn btn-danger btn-sm' role='button'>Voltar</a>
+					<button id="btAtualizarAgenda" class='btn btn-primary btn-sm'>At. Agenda</button>
 				</td>
 				<td style='width:1%'></td>
 				<td>
-					<input class='form-control' name='situacao' type='hidden' >
+					<input class='form-control btn-sm' name='situacao' type='hidden' >
 					<input id="etfuncionario" type="hidden" name="etfuncionario"<?php echo "value='".$dentista."'"; ?> >
 					<input type="hidden" name="etprotocolo" value="0" >
 				</td>

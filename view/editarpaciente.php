@@ -43,15 +43,15 @@ $lista = $pac->listarDadosPaciente("",$cpf);
         </tr>
         <tr>
           <td>
-            <input readonly class='form-control' name='etcpf' required minlength="14" maxlength="14" type='text'  onkeypress="$(this).mask('000.000.000-00');" <?php echo "value='".$dados->cpf."'"; ?>>
+            <input readonly class='form-control btn-sm' name='etcpf' required minlength="14" maxlength="14" type='text'  onkeypress="$(this).mask('000.000.000-00');" <?php echo "value='".$dados->cpf."'"; ?>>
           </td>
           <td style='width:1%'></td>
           <td>
-            <input readonly class='form-control' name='etrg' minlength="12" maxlength="12" type='text'  onkeypress="$(this).mask('99.999.999-9');" <?php echo "value='".$dados->rg."'"; ?>>
+            <input readonly class='form-control btn-sm' name='etrg' minlength="12" maxlength="12" type='text'  onkeypress="$(this).mask('99.999.999-9');" <?php echo "value='".$dados->rg."'"; ?>>
           </td>
           <td style='width:1%'></td>
           <td  colspan="3">
-            <input class='form-control' name='etnome' required type='text' <?php echo "value='".$dados->nome."'"; ?>>
+            <input class='form-control btn-sm' name='etnome' required type='text' <?php echo "value='".$dados->nome."'"; ?>>
           </td>
         </tr>
         <tr>
@@ -65,19 +65,19 @@ $lista = $pac->listarDadosPaciente("",$cpf);
         </tr>
         <tr>
           <td>
-            <input class='form-control' name='etfone' required minlength="15" maxlength="15" type='text' onkeypress="$(this).mask('(00)00000-0000')" <?php echo "value='".$dados->fone."'"; ?>>
+            <input class='form-control btn-sm' name='etfone' required minlength="15" maxlength="15" type='text' onkeypress="$(this).mask('(00)00000-0000')" <?php echo "value='".$dados->fone."'"; ?>>
           </td>
           <td style='width: 1%'></td>
           <td >
-            <input class='form-control' name = 'etidade' type='number' <?php echo "value='".$dados->idade."'"; ?>>
+            <input class='form-control btn-sm' name = 'etidade' type='number' <?php echo "value='".$dados->idade."'"; ?>>
           </td>
           <td style='width: 1%'></td>
           <td>
-            <input class='form-control' name = 'etdatanasc' type='date' <?php echo "value='".$dados->datanasc."'"; ?>>
+            <input class='form-control btn-sm' name = 'etdatanasc' type='date' <?php echo "value='".$dados->datanasc."'"; ?>>
           </td>
           <td style='width: 1%'></td>
           <td style='width: 25%'>
-            <select class ='form-control select' name ='etsexo'>
+            <select class ='form-control select btn-sm' name ='etsexo'>
   <?php echo "<option value = '".$dados->sexo."'>".$dados->sexo."</option>"; ?>
               <option value = '-'>Selecionar...</option>
               <option value = 'Masculino'>Masculino</option>
@@ -97,19 +97,19 @@ $lista = $pac->listarDadosPaciente("",$cpf);
         </tr>
         <tr>
           <td>
-            <input class='form-control' name = 'etendereco' type='text' <?php echo "value='".$dados->endereco."'"; ?>>
+            <input class='form-control btn-sm' name = 'etendereco' type='text' <?php echo "value='".$dados->endereco."'"; ?>>
           </td>
           <td style='width: 1%'></td>
           <td>
-            <input class='form-control' name='etbairro' required type="text" <?php echo "value='".$dados->bairro."'"; ?>>
+            <input class='form-control btn-sm' name='etbairro' required type="text" <?php echo "value='".$dados->bairro."'"; ?>>
           </td>
           <td style='width:1%'></td>
           <td>
-            <input class='form-control' name='etcidade' required type='text' <?php echo "value='".$dados->cidade."'"; ?>>
+            <input class='form-control btn-sm' name='etcidade' required type='text' <?php echo "value='".$dados->cidade."'"; ?>>
           </td>
           <td style='width:1%' colspan=""></td>
           <td>
-            <select class ='form-control select' name ='etestado'>
+            <select class ='form-control select btn-sm' name ='etestado'>
   <?php echo "<option value = '".$dados->estado."'>".$dados->estado."</option>"; ?>
               <option value = 'AC'>AC</option>
               <option value = 'AL'>AL</option>
@@ -152,7 +152,7 @@ $lista = $pac->listarDadosPaciente("",$cpf);
         </tr>
         <tr>
           <td>
-            <select class ='form-control select' name ='etcivil'>
+            <select class ='form-control select btn-sm' name ='etcivil'>
   <?php echo "<option value='".$dados->civil."'>".$dados->civil."</option>"; ?>
               <option value='solteiro'>Solteiro</option>
               <option value='casado'>Casado</option>
@@ -160,15 +160,15 @@ $lista = $pac->listarDadosPaciente("",$cpf);
           </td>
           <td style='width:1%' colspan=""></td>
           <td>
-            <input class='form-control' name='etprofissao' required type='text' <?php echo "value='".$dados->profissao."'"; ?>>
+            <input class='form-control btn-sm' name='etprofissao' required type='text' <?php echo "value='".$dados->profissao."'"; ?>>
           </td>
           <td style='width:1%' colspan=""></td>
           <td>
-            <input class='form-control' name='etemail' required type='text' <?php echo "value='".$dados->email."'"; ?>>
+            <input class='form-control btn-sm' name='etemail' required type='text' <?php echo "value='".$dados->email."'"; ?>>
           </td>
           <td style='width:1%' colspan=""></td>
           <td>
-            <input class='form-control' name='etindicacao' required type='text' <?php echo "value='".$dados->indicacao."'"; ?>>
+            <input class='form-control btn-sm' name='etindicacao' required type='text' <?php echo "value='".$dados->indicacao."'"; ?>>
           </td>
         </tr>
         <tr>
@@ -178,7 +178,7 @@ $lista = $pac->listarDadosPaciente("",$cpf);
         </tr>
         <tr>
           <td colspan="7">
-            <textarea class='form-control' name='etobs' required rows="3"><?php echo $dados->obs; ?></textarea>
+            <textarea class='form-control btn-sm' name='etobs' required rows="3"><?php echo $dados->obs; ?></textarea>
           </td>
           <td>
             <input type="hidden" name="etdatacadastro"<?php echo "value='".date('Y-m-d')."'"; ?> >
@@ -191,8 +191,8 @@ $lista = $pac->listarDadosPaciente("",$cpf);
         </tr>      
         <tr>
           <td>
-            <input type='submit' class='btn btn-success' value='Salvar'>
-            <a href='buscarpaciente.php' class='btn btn-danger' role='button'>Cancelar</a>
+            <input type='submit' class='btn btn-success btn-sm' value='Salvar'>
+            <a href='buscarpaciente.php' class='btn btn-danger btn-sm' role='button'>Cancelar</a>
           </td>
           <td style='width:1%'></td>
           <td>

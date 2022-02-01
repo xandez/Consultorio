@@ -29,15 +29,15 @@ if($_SESSION['nome'] == null){
           </tr>
           <tr>
             <td>
-              <input class='form-control' name='etcpf' required minlength="14" maxlength="14" type='text'  onkeypress="$(this).mask('000.000.000-00');">
+              <input class='form-control btn-sm' name='etcpf' required minlength="14" maxlength="14" type='text'  onkeypress="$(this).mask('000.000.000-00');">
             </td>
             <td style='width:1%'></td>
             <td>
-              <input class='form-control' name='etrg' minlength="12" maxlength="12" type='text'  onkeypress="$(this).mask('99.999.999-9');">
+              <input class='form-control btn-sm' name='etrg' minlength="12" maxlength="12" type='text'  onkeypress="$(this).mask('99.999.999-9');">
             </td>
             <td style='width:1%'></td>
             <td  colspan="3">
-              <input class='form-control' name='etnome' required type='text' >
+              <input class='form-control btn-sm' name='etnome' required type='text' >
             </td>
           </tr>
           <tr>
@@ -51,19 +51,19 @@ if($_SESSION['nome'] == null){
           </tr>
           <tr>
             <td>
-              <input class='form-control' name='etfone' required minlength="14" maxlength="14" type='text' onkeypress="$(this).mask('(00)00000-0000')">
+              <input class='form-control btn-sm' name='etfone' required minlength="14" maxlength="14" type='text' onkeypress="$(this).mask('(00)00000-0000')">
             </td>
             <td style='width: 1%'></td>
             <td >
-              <input class='form-control' name = 'etidade' type='number'>
+              <input class='form-control btn-sm' name = 'etidade' type='number'>
             </td>
             <td style='width: 1%'></td>
             <td>
-              <input class='form-control' name = 'etdatanasc' type='date'>
+              <input class='form-control btn-sm' name = 'etdatanasc' type='date'>
             </td>
             <td style='width: 1%'></td>
             <td style='width: 25%'>
-              <select class ='form-control select' name ='etsexo'>
+              <select class ='form-control select btn-sm' name ='etsexo'>
                 <option value = '-'>Selecionar...</option>
                 <option value = 'Masculino'>Masculino</option>
                 <option value = 'Feminino'>Feminino</option>
@@ -82,19 +82,19 @@ if($_SESSION['nome'] == null){
           </tr>
           <tr>
             <td>
-              <input class='form-control' name = 'etendereco' type='text'>
+              <input class='form-control btn-sm' name = 'etendereco' type='text'>
             </td>
             <td style='width: 1%'></td>
             <td>
-              <input class='form-control' name='etbairro' required type="text">
+              <input class='form-control btn-sm' name='etbairro' required type="text">
             </td>
             <td style='width:1%'></td>
             <td>
-              <input class='form-control' name='etcidade' required type='text'>
+              <input class='form-control btn-sm' name='etcidade' required type='text'>
             </td>
             <td style='width:1%' colspan=""></td>
             <td>
-              <select class ='form-control select' name ='etestado'>
+              <select class ='form-control select btn-sm' name ='etestado'>
                 <option value = 'AC'>AC</option>
                 <option value = 'AL'>AL</option>
                 <option value = 'AM'>AM</option>
@@ -136,22 +136,22 @@ if($_SESSION['nome'] == null){
           </tr>
           <tr>
             <td>
-              <select class ='form-control select' name ='etcivil'>
+              <select class ='form-control select btn-sm' name ='etcivil'>
                 <option value="solteiro">Solteiro</option>
                 <option value="casado">Casado</option>
               </select>
             </td>
             <td style='width:1%' colspan=""></td>
             <td>
-              <input class='form-control' name='etprofissao' required type='text'>
+              <input class='form-control btn-sm' name='etprofissao' required type='text'>
             </td>
             <td style='width:1%' colspan=""></td>
             <td>
-              <input class='form-control' name='etemail' required type='text'>
+              <input class='form-control btn-sm' name='etemail' required type='text'>
             </td>
             <td style='width:1%' colspan=""></td>
             <td>
-              <input class='form-control' name='etindicacao' required type='text'>
+              <input class='form-control btn-sm' name='etindicacao' required type='text'>
             </td>
           </tr>
           <tr>
@@ -161,7 +161,7 @@ if($_SESSION['nome'] == null){
           </tr>
           <tr>
             <td colspan="7">
-              <textarea class='form-control' name='etobs' required rows="3"></textarea>
+              <textarea class='form-control btn-sm' name='etobs' required rows="3"></textarea>
             </td>
             <td>
               <input type="hidden" name="etdatacadastro"<?php echo "value='".date('Y-m-d')."'"; ?> >
@@ -174,8 +174,8 @@ if($_SESSION['nome'] == null){
           </tr>      
           <tr>
             <td>
-              <input type='submit' class='btn btn-success' value='Salvar'>
-              <a href='buscarpaciente.php' class='btn btn-danger' role='button'>Cancelar</a>
+              <input type='submit' class='btn btn-success btn-sm' value='Salvar'>
+              <a href='buscarpaciente.php' class='btn btn-danger btn-sm' role='button'>Cancelar</a>
             </td>
             <td style='width:1%'></td>
             <td>

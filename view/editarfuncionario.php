@@ -42,15 +42,15 @@ $lista = $pac->listarDadosFuncionario("","",$cpf);
         </tr>
         <tr>
           <td>
-            <input readonly class='form-control' name='etcpf' required minlength="14" maxlength="14" type='text'  onkeypress="$(this).mask('000.000.000-00');" <?php echo "value='".$dados->cpf."'"; ?>>
+            <input readonly class='form-control btn-sm' name='etcpf' required minlength="14" maxlength="14" type='text'  onkeypress="$(this).mask('000.000.000-00');" <?php echo "value='".$dados->cpf."'"; ?>>
           </td>
           <td style='width:1%'></td>
           <td>
-            <input readonly class='form-control' name='etrg' minlength="12" maxlength="12" type='text'  onkeypress="$(this).mask('99.999.999-9');" <?php echo "value='".$dados->rg."'"; ?>>
+            <input readonly class='form-control btn-sm' name='etrg' minlength="12" maxlength="12" type='text'  onkeypress="$(this).mask('99.999.999-9');" <?php echo "value='".$dados->rg."'"; ?>>
           </td>
           <td style='width:1%'></td>
           <td  colspan="5">
-            <input readonly class='form-control' name='etnome' required type='text' <?php echo "value='".$dados->nome."'"; ?>>
+            <input readonly class='form-control btn-sm' name='etnome' required type='text' <?php echo "value='".$dados->nome."'"; ?>>
           </td>
         </tr>
         <tr>
@@ -66,7 +66,7 @@ $lista = $pac->listarDadosFuncionario("","",$cpf);
         </tr>
         <tr>
           <td>
-            <select class ='form-control select' name="etfuncao">
+            <select class ='form-control select btn-sm' name="etfuncao">
               <?php echo "<option value = '".$dados->funcao."'>".$dados->funcao."</option>"; ?>
               <option value="Auxiliar">Auxiliar</option>
               <option value="Dentista">Dentista</option>
@@ -77,15 +77,15 @@ $lista = $pac->listarDadosFuncionario("","",$cpf);
           </td>
           <td style='width: 1%'></td>
           <td>
-            <input class='form-control' name='etsalario' required type='text'  onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".$dados->salario."'"; ?> >
+            <input class='form-control btn-sm' name='etsalario' required type='text'  onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".$dados->salario."'"; ?> >
           </td>
           <td style='width: 1%'></td>
           <td>
-            <input class='form-control' type="date" name="etadmissao"<?php echo "value='".$dados->admissao."'"; ?>>
+            <input class='form-control btn-sm' type="date" name="etadmissao"<?php echo "value='".$dados->admissao."'"; ?>>
           </td>
           <td style='width: 1%'></td>
           <td>
-            <select class ='form-control select' name="etstatus">
+            <select class ='form-control select btn-sm' name="etstatus">
               <?php echo "<option value = '".$dados->status."'>".$dados->status."</option>"; ?>
               <option value="Ativo">Ativo</option>
               <option value="Inativo">Inativo</option>
@@ -93,7 +93,7 @@ $lista = $pac->listarDadosFuncionario("","",$cpf);
           </td>
           <td style='width: 1%'></td>
           <td>
-            <input class='form-control' type="date" name="etdemissao" value="">
+            <input class='form-control btn-sm' type="date" name="etdemissao" value="">
           </td>
         </tr>
         <tr>
@@ -103,8 +103,8 @@ $lista = $pac->listarDadosFuncionario("","",$cpf);
         </tr>      
         <tr>
           <td>
-            <input type='submit' class='btn btn-success' value='Salvar'>
-            <a href='buscarpaciente.php' class='btn btn-danger' role='button'>Cancelar</a>
+            <input type='submit' class='btn btn-success btn-sm' value='Salvar'>
+            <a href='buscarpaciente.php' class='btn btn-danger btn-sm' role='button'>Cancelar</a>
           </td>
           <td style='width:1%'></td>
           <td>

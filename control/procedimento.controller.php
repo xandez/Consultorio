@@ -1,7 +1,7 @@
 <?php 
 
-	require_once '../Model/Conexao.php';
-	require_once '../Model/procedimento.php';
+	require_once '../model/Conexao.php';
+	require_once '../model/procedimento.php';
 
 class ProcedimentoController{
 

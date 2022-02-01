@@ -35,11 +35,11 @@ $usuariologado = $_SESSION['nome'];
     <div class="row">
       <div class="col-2">
         <div class="list-group" id="list-tab" role="tablist">
-          <a onmousedown="cliqueinicio()" class="list-group-item list-group-item-action active" id="list-inicio-list" data-bs-toggle="list" href="#list-inicio" role="tab" aria-controls="list-home"><img  src="./img/home.png" id="inicio"> Início</a>
-          <a onmousedown="cliqueagenda();atualizarframe('agendaframe')" class="list-group-item list-group-item-action" id="list-agenda-list" data-bs-toggle="list" href="#list-agenda" role="tab" aria-controls="list-agenda"><img src="./img/agenda1.png" id="agenda"> Agenda</a>
-          <a onmousedown="cliquepaciente()" class="list-group-item list-group-item-action" id="list-paciente-list" data-bs-toggle="list" href="#list-paciente" role="tab" aria-controls="list-paciente"><img src="./img/paciente1.png" id="paciente"> Pacientes</a>
-          <a onmousedown="cliqueprocedimento()" class="list-group-item list-group-item-action" id="list-procedimento-list" data-bs-toggle="list" href="#list-procedimento" role="tab" aria-controls="list-procedimento"><img src="./img/procedimento1.png" id="procedimento"> Procedimentos</a>
-          <a onmousedown="cliquefuncionario()" class="list-group-item list-group-item-action" id="list-funcionario-list" data-bs-toggle="list" href="#list-funcionario" role="tab" aria-controls="list-funcionario"><img src="./img/funcionario1.png" id="funcionario"> Funcionários</a>
+          <a onmousedown="cliqueinicio()" class="list-group-item list-group-item-action active" id="list-inicio-list" data-bs-toggle="list" href="#list-inicio" role="tab" aria-controls="list-home"><img  src="./img/home.png" id="inicio"> <span> Início</span></a>
+          <a onmousedown="cliqueagenda();atualizarframe('agendaframe')" class="list-group-item list-group-item-action" id="list-agenda-list" data-bs-toggle="list" href="#list-agenda" role="tab" aria-controls="list-agenda"><img src="./img/agenda1.png" id="agenda"> <span> Agenda</span></a>
+          <a onmousedown="cliquepaciente()" class="list-group-item list-group-item-action" id="list-paciente-list" data-bs-toggle="list" href="#list-paciente" role="tab" aria-controls="list-paciente"><img src="./img/paciente1.png" id="paciente"> <span> Pacientes</span></a>
+          <a onmousedown="cliqueprocedimento()" class="list-group-item list-group-item-action" id="list-procedimento-list" data-bs-toggle="list" href="#list-procedimento" role="tab" aria-controls="list-procedimento"><img src="./img/procedimento1.png" id="procedimento"> <span> Procedimentos</span></a>
+          <a onmousedown="cliquefuncionario()" class="list-group-item list-group-item-action" id="list-funcionario-list" data-bs-toggle="list" href="#list-funcionario" role="tab" aria-controls="list-funcionario"><img src="./img/funcionario1.png" id="funcionario"> <span> Funcionários</span></a>
           
         </div>
       </div>

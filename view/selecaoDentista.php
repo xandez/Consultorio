@@ -31,7 +31,7 @@ $lista = $func->listarDadosFuncionario('Dentista','','');
         </tr>
         <tr>
           <td colspan='12'>
-          	<select class ='form-control select' name ='etfunc'>
+          	<select class ='form-control select btn-sm' name ='etfunc'>
           		<?php 
 
           			foreach($lista as $dados){
@@ -44,7 +44,7 @@ $lista = $func->listarDadosFuncionario('Dentista','','');
           </td>
           <td style='width:1%'></td>
           <td >
-            <input type='submit' class='btn btn-success' value='Buscar'>
+            <input type='submit' class='btn btn-success btn-sm' value='Buscar'>
             <!--
               <a href='' id="btcancelar"  class='btn btn-danger' role='button'>Cancelar</a>
           -->

@@ -1,0 +1,32 @@
+@media (max-width: 2980px){
+ th{
+   width: auto;
+ }
+ td{
+   width: auto;
+ }
+}
+
+/*  */
+@media (min-width: 740px) and (max-width: 1150px){
+  th{
+    width: auto;
+  }
+  td{
+    width: auto;
+  }
+  #etpaciente, #etinicio, #etfim{
+    width: 175px;
+  }
+}
+
+/*  */
+
+@media (min-width: 0px) and (max-width: 939px){
+  th{
+    width: auto;
+  }
+  td{
+    width: auto;
+  }
+}

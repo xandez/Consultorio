@@ -24,7 +24,7 @@ if($_SESSION['nome'] == null){
           </tr>
           <tr>
             <td>
-            	<select class ='form-control select' name ='etespec'>
+            	<select class ='form-control select btn-sm' name ='etespec'>
 		        	<option value ='Cirurgia e Implante'>Cirurgia e Implante</option>
 		        	<option value ='Dentística'>Dentística</option>
 		        	<option value ='Endodontia'>Endodontia</option>
@@ -40,7 +40,7 @@ if($_SESSION['nome'] == null){
             </td>
             <td style='width:1%'></td>
             <td colspan='5'>
-              <input class='form-control' name='etnome' required type='text' >
+              <input class='form-control btn-sm' name='etnome' required type='text' >
             </td>
           </tr>
           <tr>
@@ -54,19 +54,19 @@ if($_SESSION['nome'] == null){
           </tr>
           <tr>
             <td>
-              <input class='form-control' name='etvalor' required type='text'  onkeypress="$(this).mask('00.000,00', {reverse: true});">
+              <input class='form-control btn-sm' name='etvalor' required type='text'  onkeypress="$(this).mask('00.000,00', {reverse: true});">
             </td>
             <td style='width: 1%'></td>
             <td>
-              <input class='form-control' name='etvalmin' required type='text' value = '' onkeypress="$(this).mask('00.000,00', {reverse: true});">
+              <input class='form-control btn-sm' name='etvalmin' required type='text' value = '' onkeypress="$(this).mask('00.000,00', {reverse: true});">
             </td>
             <td style='width:1%'></td>
             <td>
-              <input class='form-control' name='etvalmax' required type='text' onkeypress="$(this).mask(' 00.000,00', {reverse: true});">
+              <input class='form-control btn-sm' name='etvalmax' required type='text' onkeypress="$(this).mask(' 00.000,00', {reverse: true});">
             </td>
             <td style='width:1%'></td>
             <td>
-              <input class='form-control' name = 'etcusto' required type='text' onkeypress="$(this).mask(' 00.000,00', {reverse: true});">
+              <input class='form-control btn-sm' name = 'etcusto' required type='text' onkeypress="$(this).mask(' 00.000,00', {reverse: true});">
             </td>
           </tr>
           <tr>
@@ -76,8 +76,8 @@ if($_SESSION['nome'] == null){
           </tr>      
           <tr>
             <td>
-              <input type='submit' class='btn btn-success' value='Salvar'>
-              <a href='buscarprocedimento.php' class='btn btn-danger' role='button'>Cancelar</a>
+              <input type='submit' class='btn btn-success btn-sm' value='Salvar'>
+              <a href='buscarprocedimento.php' class='btn btn-danger btn-sm' role='button'>Cancelar</a>
             </td>
             <td style='width:1%'></td>
             <td>

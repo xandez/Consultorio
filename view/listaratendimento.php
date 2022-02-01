@@ -25,6 +25,12 @@ $lista = $atendimento->listar($paciente, $dente);
   <link rel=”stylesheet” href=”https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css”>
 </head>
 
+<style>
+  @media (min-width: 0px) and (max-width: 768px){
+    
+  }
+</style>
+
 <body>
   <table class='table table-sm'>
     <?php
@@ -33,7 +39,7 @@ $lista = $atendimento->listar($paciente, $dente);
       <thead>
         <tr>
           <th scope='col'>Dente</th>
-          <th scope='col' style='width: 45%;'>Procedimento</th>
+          <th class='col-procedimento' scope='col'>Procedimento</th>
           <th scope='col'>Valor</th>
           <th scope='col'>Data</th>
           <th scope='col'>Status</th>

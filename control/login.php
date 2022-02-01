@@ -1,5 +1,5 @@
 <?php 
-	require_once '../Model/Conexao.php';
+	require_once '../model/Conexao.php';
 
 	$usuario = preg_replace('/[^[:alnum:]_]/','',$_POST['etUsuario']);
 	$senha 	 = preg_replace('/[^[:alnum:]_]/','',$_POST['etSenha']);

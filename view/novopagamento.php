@@ -54,19 +54,19 @@ foreach ($saldopaciente as $dados1){
         <tr>
           <td>
             <input type="hidden" name="etcpf"<?php echo "value='".$cpf."'"; ?> >
-            <input readonly class='form-control' name='etnome' required type='text' <?php echo "value='".$dados->nome."'"; ?>>
+            <input readonly class='form-control btn-sm' name='etnome' required type='text' <?php echo "value='".$dados->nome."'"; ?>>
           </td>
           <td style='width:1%'></td>
           <td>
-            <input class='form-control' name='etvalor' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});">
+            <input class='form-control btn-sm' name='etvalor' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});">
           </td>
           <td style='width:1%'></td>
           <td>
-            <input class='form-control' name='etdatalanc' required type='datetime-local'  >
+            <input class='form-control btn-sm' name='etdatalanc' required type='datetime-local'  >
           </td>
           <td style='width:1%'></td>
           <td>
-            <select required class ='form-control select' name="ettipo">
+            <select required class ='form-control select btn-sm' name="ettipo">
               <option value="" selected disabled>Selecione...</option>
               <option value="DINHEIRO">Dinheiro</option>
               <option value="PIX">Pix</option>
@@ -77,8 +77,8 @@ foreach ($saldopaciente as $dados1){
           <td style='width:1%'></td>
           <td>
             <input type="hidden" name="etdata" <?php echo "value='".date('Y-m-d H:i:s')."'"; ?>>
-            <input type='submit' class='btn btn-success' value='Lançar'>
-            <a href='buscarpaciente.php' class='btn btn-danger' role='button'>Cancelar</a>
+            <input type='submit' class='btn btn-success btn-sm' value='Lançar'>
+            <a href='buscarpaciente.php' class='btn btn-danger btn-sm' role='button'>Cancelar</a>
           </td>
         </tr>
         <tr>

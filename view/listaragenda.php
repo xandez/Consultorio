@@ -66,25 +66,117 @@ foreach ($listadente as $listadedentes) {
   <link rel=”stylesheet” href=”https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css”>
   <link rel="stylesheet" href="./css/menu.css">
   <style type="text/css">
-    #tabelapaciente tr td {
-      font-size: 12px !important;
+    @media (max-width: 2980px){
+      #tabelapaciente tr td {
+        font-size: 12px !important;
+      }
+
+      #tabelapaciente tr th {
+        font-size: 15px !important;
+      }
+
+      .superior li img {
+        transform: rotate(180deg);
+      }
+
+      .list-group-item {
+        padding: 0 !important;
+      }
+      #btAcordeon1,#btAcordeon2,#btAcordeon3{
+        font-weight: bold;
+        background-color: #e9ecef;
+      }
+      #criancacima, #criancabaixo{
+        padding-left: 4.3px;
+      }
+      
     }
 
-    #tabelapaciente tr th {
-      font-size: 15px !important;
+    @media (min-width: 1195px) and (max-width: 1399px){
+      .col-8{
+        width: 80% !important;
+      }
+      #criancacima, #criancabaixo{
+        padding-left: 0.3px;
+      }
     }
 
-    .superior li img {
-      transform: rotate(180deg);
+    @media (min-width: 992px) and (max-width: 1194px){
+      .col-8{
+        width: 100% !important;
+      }
+      #criancacima, #criancabaixo{
+        padding-left: 0.3px;
+      }
     }
 
-    .list-group-item {
-      padding: 0 !important;
+    @media (min-width: 800px) and (max-width: 991px){
+      .col-8{
+        width: 100% !important;
+      }
+      #criancacima, #criancabaixo{
+        padding-left: 0.3px;
+      }
+      .container{
+        max-width: 100% !important;
+      }
+
+      img{
+        width: 100%;
+        height: 100%;
+      }
+
+      .list-group-item button{
+        font-size: 10px;
+      }
+      .col{
+        width: 0px !important;
+        padding: 0 !important;
+      }
+      .accordion-body{
+        padding: 0 !important;
+      }
+
+      #criancacima img, #criancabaixo img{
+        width: 14px;
+        height: 14px;
+      }
     }
-    #btAcordeon1,#btAcordeon2,#btAcordeon3{
-      font-weight: bold;
-      background-color: #e9ecef;
+
+    @media (min-width: 0px) and (max-width: 799px){
+      .col-8{
+        width: 100% !important;
+      }
+      #criancacima, #criancabaixo{
+        padding-left: 0.3px;
+      }
+      .container{
+        max-width: 100% !important;
+      }
+
+      img{
+        width: 100%;
+        height: 100%;
+      }
+
+      .list-group-item button{
+        font-size: 10px;
+        padding: 0 5px 0 5px !important;
+      }
+      .col{
+        width: 0px !important;
+        padding: 0 !important;
+      }
+      .accordion-body{
+        padding: 0 !important;
+      }
+
+      #criancacima img, #criancabaixo img{
+        width: 14px;
+        height: 14px;
+      }
     }
+    
   </style>
 
 </head>
@@ -92,7 +184,6 @@ foreach ($listadente as $listadedentes) {
 <body>
   <nav class="navbar navbar-dark">
     <span class="" href="#">Detalhe agenda: <?php echo $dados->funcionario ?></span>
-    <a class="btn" href="index.php?link=1" role="button"><img src="" alt=""></a>
   </nav>
   <br>
 
@@ -266,7 +357,7 @@ foreach ($listadente as $listadedentes) {
             </h2>
             <div id="acordeon2" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
               <div class="accordion-body">
-                <ul class="list-group list-group-horizontal superior" style="justify-content: center; padding-left: 3.3px;">
+                <ul id="criancacima" class="list-group list-group-horizontal superior" style="justify-content: center;">
                   <li class="list-group-item">
                     <button style="font-size: 12px;" value="55" type="button" class="btn btn-light">
                       55<br>
@@ -779,7 +870,7 @@ foreach ($listadente as $listadedentes) {
                     </button>
                   </li>
                 </ul>
-                <ul class="list-group list-group-horizontal" style="justify-content: center; padding-left: 3.3px;">
+                <ul id="criancabaixo" class="list-group list-group-horizontal inferior" style="justify-content: center;">
                   <li class="list-group-item">
                     <button style="font-size: 12px;" value="85" type="button" class="btn btn-light">
                       85<br>

@@ -1,6 +1,6 @@
 <?php 
-require_once '../Model/Conexao.php';
-require_once '../Model/funcionario.php';
+require_once '../model/Conexao.php';
+require_once '../model/funcionario.php';
 
 class FuncionarioController{
 

@@ -44,15 +44,15 @@ $lista = $proc->listarProcedimento("",$id);
           </tr>
           <tr>
           	<td>
-          		<input class='form-control' readonly name='etcod' required type='text' <?php echo "value='".$dados->id."'" ?>>
+          		<input class='form-control btn-sm' readonly name='etcod' required type='text' <?php echo "value='".$dados->id."'" ?>>
           	</td>
           	<td style='width:1%'></td>
             <td>
-            	<input readonly class='form-control' name='etespec' required type='text' <?php echo "value='".$dados->especialidade."'"; ?>>
+            	<input readonly class='form-control btn-sm' name='etespec' required type='text' <?php echo "value='".$dados->especialidade."'"; ?>>
             </td>
             <td style='width:1%'></td>
             <td colspan='5'>
-              <input readonly class='form-control' name='etnome' required type='text' <?php echo "value='".$dados->nome."'"; ?>>
+              <input readonly class='form-control btn-sm' name='etnome' required type='text' <?php echo "value='".$dados->nome."'"; ?>>
             </td>
           </tr>
           <tr>
@@ -66,19 +66,19 @@ $lista = $proc->listarProcedimento("",$id);
           </tr>
           <tr>
             <td>
-              <input class='form-control' name='etvalor' required type='text'  onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".str_replace('.',',',$dados->valor)."'"; ?>>
+              <input class='form-control btn-sm' name='etvalor' required type='text'  onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".str_replace('.',',',$dados->valor)."'"; ?>>
             </td>
             <td style='width: 1%'></td>
             <td>
-              <input class='form-control' name='etvalmin' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".str_replace('.',',',$dados->valormin)."'"; ?>>
+              <input class='form-control btn-sm' name='etvalmin' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".str_replace('.',',',$dados->valormin)."'"; ?>>
             </td>
             <td style='width:1%'></td>
             <td>
-              <input class='form-control' name='etvalmax' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".str_replace('.',',',$dados->valormax)."'"; ?>>
+              <input class='form-control btn-sm' name='etvalmax' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".str_replace('.',',',$dados->valormax)."'"; ?>>
             </td>
             <td style='width:1%'></td>
             <td>
-              <input class='form-control' name = 'etcusto' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".str_replace('.',',',$dados->custo)."'"; ?>>
+              <input class='form-control btn-sm' name = 'etcusto' required type='text' onkeypress="$(this).mask('00.000,00', {reverse: true});" <?php echo "value='".str_replace('.',',',$dados->custo)."'"; ?>>
             </td>
           </tr>
           <tr>
@@ -88,8 +88,8 @@ $lista = $proc->listarProcedimento("",$id);
           </tr>      
           <tr>
             <td>
-              <input type='submit' class='btn btn-success' value='Salvar'>
-              <a href='buscarprocedimento.php' class='btn btn-danger' role='button'>Cancelar</a>
+              <input type='submit' class='btn btn-success btn-sm' value='Salvar'>
+              <a href='buscarprocedimento.php' class='btn btn-danger btn-sm' role='button'>Cancelar</a>
             </td>
             <td style='width:1%'></td>
             <td>

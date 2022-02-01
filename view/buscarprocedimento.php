@@ -23,11 +23,11 @@ if($_SESSION['nome'] == null){
 	          	</tr>
 	          	<tr>
 	          		<td>
-	          			<input class='form-control' name='etid' maxlength="14" type='text'>
+	          			<input class='form-control btn-sm' name='etid' maxlength="14" type='text'>
 	          		</td>
 	          		<td style='width:1%'></td>
 	          		<td colspan='5'>
-		              <input class='form-control' name='etnome' type='text' >
+		              <input class='form-control btn-sm' name='etnome' type='text' >
 		            </td>
 	          	</tr>
 	          	<tr>
@@ -37,8 +37,8 @@ if($_SESSION['nome'] == null){
 		        </tr>  
 	          	<tr>
 	          		<td>
-	          			<input type='submit' class='btn btn-success' value='Buscar'>
-	              		<a href='novoprocedimento.php' class='btn btn-primary' role='button'>Novo</a>
+	          			<input type='submit' class='btn btn-success btn-sm' value='Buscar'>
+	              		<a href='novoprocedimento.php' class='btn btn-primary btn-sm' role='button'>Novo</a>
 	          		</td>
 	          	</tr>
 	      	</tbody>
