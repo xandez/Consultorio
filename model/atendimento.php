@@ -43,6 +43,16 @@ class Atendimento{
     }
   }
 
+  public function excluir(){
+    $sql = "DELETE FROM atendimento WHERE id = '{$this->id}'";
+
+    if(ConexaoBD::executar($sql) !== null){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   public function listar(){
     $sql = "SELECT * FROM atendimento where paciente = '{$this->paciente}' and dente = '{$this->dente}' order by situacao";
 

@@ -49,6 +49,21 @@ class AtendimentoController{
     ConexaoBD::desconecta();
   }
 
+  public function excluir(){
+    ConexaoBD::conectar();
+
+    $atendimento = new Atendimento();
+    $atendimento->set('id',$_POST['etid']);
+    
+    if($atendimento->excluir()){
+      echo "<script>alert('Operação realizada com sucesso.');</script>";
+    }else{
+      echo "<script>alert('Erro ao inserir procedimento!');</script>";
+    }
+
+    ConexaoBD::desconecta();
+  }
+
   public function listar($paciente,$dente){
     ConexaoBD::conectar();
 

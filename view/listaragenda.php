@@ -89,7 +89,12 @@ foreach ($listadente as $listadedentes) {
       #criancacima, #criancabaixo{
         padding-left: 4.3px;
       }
-      
+      #crianca img, #adulto img{
+        height: 40px;
+      }
+      #botox img{
+        height: 30px;
+      }
     }
 
     @media (min-width: 1195px) and (max-width: 1399px){
@@ -99,6 +104,10 @@ foreach ($listadente as $listadedentes) {
       #criancacima, #criancabaixo{
         padding-left: 0.3px;
       }
+
+      #crianca img, #adulto img{
+        height: 30px;
+      }
     }
 
     @media (min-width: 992px) and (max-width: 1194px){
@@ -107,6 +116,10 @@ foreach ($listadente as $listadedentes) {
       }
       #criancacima, #criancabaixo{
         padding-left: 0.3px;
+      }
+
+      #crianca img, #adulto img{
+        height: 40px;
       }
     }
 
@@ -141,6 +154,10 @@ foreach ($listadente as $listadedentes) {
         width: 14px;
         height: 14px;
       }
+
+      #crianca img, #adulto img{
+        height: 40px;
+      }
     }
 
     @media (min-width: 0px) and (max-width: 799px){
@@ -174,6 +191,10 @@ foreach ($listadente as $listadedentes) {
       #criancacima img, #criancabaixo img{
         width: 14px;
         height: 14px;
+      }
+
+      #crianca img, #adulto img{
+        height: 40px;
       }
     }
     
@@ -355,6 +376,11 @@ foreach ($listadente as $listadedentes) {
                 Odontograma
               </button>
             </h2>
+              <div id="bttipo">
+                <a href="#" id="adulto"><img  src="./img/adulto.png"></a>
+                <a href="#" id="crianca"><img  src="./img/crianca.png"></a>
+                <a href="#" id="botox"><img  src="./img/rosto.png"></a>
+              </div>
             <div id="acordeon2" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
               <div class="accordion-body">
                 <ul id="criancacima" class="list-group list-group-horizontal superior" style="justify-content: center;">
@@ -479,7 +505,7 @@ foreach ($listadente as $listadedentes) {
                     </button>
                   </li>
                 </ul>
-                <ul class="list-group list-group-horizontal superior">
+                <ul id="adultocima" class="list-group list-group-horizontal superior">
                   <li class="list-group-item">
                     <button value="18" type="button" class="btn btn-light">
                       18
@@ -676,7 +702,7 @@ foreach ($listadente as $listadedentes) {
                 <ul class="list-group list-group-horizontal" style="border-bottom: 2px solid;">
                 </ul>
                 <!--  -->
-                <ul class="list-group list-group-horizontal">
+                <ul id="adultobaixo" class="list-group list-group-horizontal">
                   <li class="list-group-item">
                     <button value="48" type="button" class="btn btn-light">
 
@@ -1019,7 +1045,7 @@ foreach ($listadente as $listadedentes) {
                     </tr>
                     <tr>
                       <td>
-                        <input readonly type="number" style="width: 60px;" id="etdente" class='form-control form-control-sm' name='etdente'>
+                        <input readonly style="width: 60px;" id="etdente" class='form-control form-control-sm' name='etdente'>
                         </input>
                         
                       </td>
@@ -1263,7 +1289,38 @@ foreach ($listadente as $listadedentes) {
       var paciente = $("#etpaciente").data('cpf');
       $("#frameatendimento").attr('src', 'listaratendimento.php?etdente=' + $(this).val() + '&etpaciente=' + paciente);
     });
-  </script>
+    //xx
+    $("#botox").click(function(){
+      ndente.val("FACE");
+      var paciente = $("#etpaciente").data('cpf');
+      $("#frameatendimento").attr('src', 'listaratendimento.php?etdente=' + "FACE" + '&etpaciente=' + paciente);
+    });
+
+    //botões de criança adulto
+    var btadulto = $("#adulto");
+    var btcrianca = $("#crianca");
+    var dentescima = $("#criancacima");
+    var dentesbaixo = $("#criancabaixo");
+    var adultobaixo = $("#adultobaixo");
+    var adultocima = $("#adultocima");
+
+      dentescima.hide();
+      dentesbaixo.hide();
+
+    btadulto.click(function(){
+      dentescima.hide();
+      dentesbaixo.hide();
+      adultobaixo.show();
+      adultocima.show();
+    });
+
+    btcrianca.click(function(){
+      dentescima.show();
+      dentesbaixo.show();
+      adultobaixo.hide()
+      adultocima.hide()
+    })
+    </script>
 </body>
 
 </html>

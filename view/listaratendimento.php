@@ -139,7 +139,20 @@ $lista = $atendimento->listar($paciente, $dente);
 
     btConfirmar.click(function(){
       var id = $(this).data('id');
-      alert(id);
+      $.ajax({
+        method: "POST",
+        url: "../control/atendimento.controller.php?evento=excluir",
+        data: {
+          etid: id
+        },
+        success: function(){
+          alert('Excluido');
+          window.location.reload();
+        },
+        fail: function() {
+          alert('Erro ao inserir!');
+        }
+      })
     })
   </script>
 </body>
