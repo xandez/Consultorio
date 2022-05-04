@@ -2,7 +2,7 @@
 date_default_timezone_set('America/Sao_Paulo'); 
 session_start();
 
-if($_SESSION['nome'] == null){
+if($_SESSION['nome'] == null || $_SESSION['nivel'] > 0){
   header("Location:../view/index.php");
 }
 ?>

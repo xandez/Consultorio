@@ -30,7 +30,9 @@ $lista = $proc->listarProcedimento($_POST['etnome'],$_POST['etid']);
 	      <th scope="col">Valor Min.</th>
 	      <th scope="col">Valor Max.</th>
 	      <th scope="col">Custo</th>
+			<?php if($_SESSION['nivel'] <= 0 ) {?>
 	      <th scope="col">Ação</th>
+			<?php } ?>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -44,10 +46,13 @@ $lista = $proc->listarProcedimento($_POST['etnome'],$_POST['etid']);
 	      <td>'.str_replace('.',',',$dados->valor).'</td>
 	      <td>'.str_replace('.',',',$dados->valormin).'</td>
 	      <td>'.str_replace('.',',',$dados->valormax).'</td>
-	      <td>'.str_replace('.',',',$dados->custo).'</td>
+	      <td>'.str_replace('.',',',$dados->custo).'</td>';
+				if($_SESSION['nivel']<=0){
+		echo'
 	      <td><a href="editarprocedimento.php?id='.$dados->id.'" class="btn btn-primary btn-sm" role="button">Editar</a></td>
 	    </tr>
 	    ';
+				}
 	}
 
 ?>

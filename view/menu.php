@@ -6,6 +6,7 @@ if($_SESSION['nome'] == null){
 }
 
 $usuariologado = $_SESSION['nome'];
+$nivel = $_SESSION['nivel'];
 
 ?>
 <!DOCTYPE html>
@@ -39,8 +40,10 @@ $usuariologado = $_SESSION['nome'];
           <a onmousedown="cliqueagenda();atualizarframe('agendaframe')" class="list-group-item list-group-item-action" id="list-agenda-list" data-bs-toggle="list" href="#list-agenda" role="tab" aria-controls="list-agenda"><img src="./img/agenda1.png" id="agenda"> <span> Agenda</span></a>
           <a onmousedown="cliquepaciente()" class="list-group-item list-group-item-action" id="list-paciente-list" data-bs-toggle="list" href="#list-paciente" role="tab" aria-controls="list-paciente"><img src="./img/paciente1.png" id="paciente"> <span> Pacientes</span></a>
           <a onmousedown="cliqueprocedimento()" class="list-group-item list-group-item-action" id="list-procedimento-list" data-bs-toggle="list" href="#list-procedimento" role="tab" aria-controls="list-procedimento"><img src="./img/procedimento1.png" id="procedimento"> <span> Procedimentos</span></a>
+        <?php 
+        if($nivel <= 0){?>
           <a onmousedown="cliquefuncionario()" class="list-group-item list-group-item-action" id="list-funcionario-list" data-bs-toggle="list" href="#list-funcionario" role="tab" aria-controls="list-funcionario"><img src="./img/funcionario1.png" id="funcionario"> <span> Funcionários</span></a>
-          
+        <?php } ?>
         </div>
       </div>
       <div class="col-10">

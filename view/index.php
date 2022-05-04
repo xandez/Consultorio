@@ -11,7 +11,7 @@
 			break;
 		
 		default:
-			# code...
+			
 			break;
 	}
 	?>

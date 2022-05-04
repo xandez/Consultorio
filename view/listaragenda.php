@@ -82,6 +82,7 @@ foreach ($listadente as $listadedentes) {
       .list-group-item {
         padding: 0 !important;
       }
+
       #btAcordeon1,#btAcordeon2,#btAcordeon3{
         font-weight: bold;
         background-color: #e9ecef;
@@ -108,6 +109,9 @@ foreach ($listadente as $listadedentes) {
       #crianca img, #adulto img{
         height: 30px;
       }
+      #botox img{
+        height: 30px;
+      }
     }
 
     @media (min-width: 992px) and (max-width: 1194px){
@@ -120,6 +124,9 @@ foreach ($listadente as $listadedentes) {
 
       #crianca img, #adulto img{
         height: 40px;
+      }
+      #botox img{
+        height: 30px;
       }
     }
 
@@ -134,7 +141,7 @@ foreach ($listadente as $listadedentes) {
         max-width: 100% !important;
       }
 
-      img{
+      button img{
         width: 100%;
         height: 100%;
       }
@@ -158,6 +165,9 @@ foreach ($listadente as $listadedentes) {
       #crianca img, #adulto img{
         height: 40px;
       }
+      #botox img{
+        height: 30px;
+      }
     }
 
     @media (min-width: 0px) and (max-width: 799px){
@@ -171,7 +181,7 @@ foreach ($listadente as $listadedentes) {
         max-width: 100% !important;
       }
 
-      img{
+      button img{
         width: 100%;
         height: 100%;
       }
@@ -195,6 +205,9 @@ foreach ($listadente as $listadedentes) {
 
       #crianca img, #adulto img{
         height: 40px;
+      }
+      #botox img{
+        height: 30px;
       }
     }
     

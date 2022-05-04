@@ -38,7 +38,11 @@ if($_SESSION['nome'] == null){
 	          	<tr>
 	          		<td>
 	          			<input type='submit' class='btn btn-success btn-sm' value='Buscar'>
-	              		<a href='novoprocedimento.php' class='btn btn-primary btn-sm' role='button'>Novo</a>
+									<?php 
+									if($_SESSION['nivel'] <= 0){
+									?>
+	              	<a href='novoprocedimento.php' class='btn btn-primary btn-sm' role='button'>Novo</a>
+									<?php } ?>
 	          		</td>
 	          	</tr>
 	      	</tbody>
