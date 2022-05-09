@@ -32,7 +32,7 @@ $lista = $pac->listarDadosPaciente($_POST['etnome'], $_POST['etcpf']);
 				<th scope="col">Nome</th>
 				<th scope="col">Fone</th>
 				<th scope="col">Endereço</th>
-				<th scope="col">Ação</th>
+				<th scope="col">Ações</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -45,7 +45,19 @@ $lista = $pac->listarDadosPaciente($_POST['etnome'], $_POST['etcpf']);
 	      <td>' . $dados->nome . '</td>
 	      <td>' . $dados->fone . '</td>
 	      <td>' . $dados->endereco . '</td>
-	      <td><a href="editarpaciente.php?cpf=' . $dados->cpf . '" class="btn btn-primary btn-sm" role="button">Editar</a> <a href="novopagamento.php?etcpf=' . $dados->cpf . '" class="btn btn-primary btn-sm" role="button">Pag.</a></td>
+	      <td>
+				<div class="btn-group" role="group">
+					<button id="btnGroupDrop1" type="button" class="btn btn-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+						<svg xmlns="http://www.w3.org/2000/svg" id="Bold" viewBox="0 0 24 24" width="20" height="20">
+							<path xmlns="http://www.w3.org/2000/svg" d="M1.51,6.079a1.492,1.492,0,0,1,1.06.44l7.673,7.672a2.5,2.5,0,0,0,3.536,0L21.44,6.529A1.5,1.5,0,1,1,23.561,8.65L15.9,16.312a5.505,5.505,0,0,1-7.778,0L.449,8.64A1.5,1.5,0,0,1,1.51,6.079Z" fill="#ffffff" data-original="#000000"/>
+						</svg>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+						<li><a class="dropdown-item" href="editarpaciente.php?cpf=' . $dados->cpf . '">Editar</a></li>
+						<li><a class="dropdown-item" href="novopagamento.php?etcpf=' . $dados->cpf . '">Pagamentos</a></li>
+						</ul>
+				</div>
+				</td>
 	    </tr>
 	    ';
 			}
@@ -54,12 +66,8 @@ $lista = $pac->listarDadosPaciente($_POST['etnome'], $_POST['etcpf']);
 		</tbody>
 	</table>
 	<a href='buscarpaciente.php' class='btn btn-danger' role='button'>Voltar</a>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 </body>
 
 </html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>

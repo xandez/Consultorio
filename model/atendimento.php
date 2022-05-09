@@ -67,7 +67,7 @@ class Atendimento{
   }
 
   public function listarPorPaciente(){
-    $sql = "SELECT * FROM atendimento where paciente = '{$this->paciente}' order by dt DESC";
+    $sql = "SELECT * FROM atendimento where paciente = '{$this->paciente}' and situacao <> 'PENDENTE' order by dt DESC";
 
     $res = ConexaoBD::executar($sql);
     $lista = null;

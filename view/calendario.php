@@ -95,7 +95,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 				  				title: 'Paciente: ".$dados->nome."',
 		          		start: '".$dados->inicio."',
 		          		end: '".$dados->fim."',
-									url: 'listaragenda.php?id=".$dados->id."'";
+									url: 'listaragenda.php?id=".$dados->id."&cpf=".$dados->paciente."'";
 		          		if ($dados->tipo == "CONSULTA") {
 		          			echo ",color: 'silver'";
 		          		}

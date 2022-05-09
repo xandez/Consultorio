@@ -15,13 +15,14 @@ require_once '../control/pagamento.controller.php';
 
 //pega os dados da agenda selecioanda pelo ID;
 $idagenda = $_GET['id'];
+$cpf = $_GET['cpf'];
 $agenda = new AgendaController();
 $lista = $agenda->listarAgenda($idagenda);
 foreach ($lista as $dados) {
 };
 
 //pega o saldo do paciente;
-$cpf = $dados->paciente;
+//$cpf = $dados->paciente;
 $saldo = new PagamentoController();
 $saldopaciente = $saldo->listarSaldo($cpf);
 foreach ($saldopaciente as $saldomostrar) {
@@ -33,7 +34,7 @@ $fim = str_replace(' ', 'T', $dados->fim);
 
 //lista os dados do paciente;
 $paciente = new PacienteController();
-$dadosPaciente = $paciente->listarDadosPaciente("", $dados->paciente);
+$dadosPaciente = $paciente->listarDadosPaciente("", $cpf);
 foreach ($dadosPaciente as $dados1) {
 };
 
@@ -43,7 +44,7 @@ $dadosprocedimento = $procedimento->listarProcedimento("", "");
 
 //pega o numero dos dentes que tem procedimento em aberto
 $dentes = new AtendimentoController();
-$listadente = $dentes->denteProcedimento($dados->paciente);
+$listadente = $dentes->denteProcedimento($cpf);
 foreach ($listadente as $listadedentes) {
   $arraydentes[] = $listadedentes->dente;
 };
