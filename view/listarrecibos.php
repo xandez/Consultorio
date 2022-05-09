@@ -48,7 +48,7 @@ $lista = $pagamento->listarRecibos($_GET['cpf']);
         echo '
         <tr>
           <td>' . $dados->id . '</td>
-          <td>' . $dados->data . '</td>
+          <td>' . date('d/m/Y H:i:s', strtotime($dados->data)) . '</td>
           <td>' . $dados->tipo . '</td>
           <td>' . $dados->valor . '</td>
           <td>

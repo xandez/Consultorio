@@ -29,7 +29,7 @@ foreach ($lista as $dados){}
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Recibo Nº<?php echo $id ?></title>
 </head>
 
 <style>
@@ -122,7 +122,7 @@ foreach ($lista as $dados){}
   </header>
   <div id="corpo">
     <p>Recebemos da(o): <?php echo $dados->nome ?></p>
-    <p>Data pagamento: <?php  echo $dados->data ?></p>
+    <p>Data pagamento: <?php  echo date('d/m/Y H:i:s',strtotime($dados->data)) ?></p>
     <p>Forma de pagamento: <?php echo $dados->tipo ?></p>
     <div id="ass">
       <p>___________________________________________</p>

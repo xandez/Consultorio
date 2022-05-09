@@ -332,7 +332,7 @@ foreach ($listadente as $listadedentes) {
                       <td style='width:2%'></td>
                       <td><?php echo $dados1->idade ?></td>
                       <td style='width:2%'></td>
-                      <td><?php echo $dados1->datanasc ?></td>
+                      <td><?php echo date('d/m/Y', strtotime($dados1->datanasc)) ?></td>
                       <td style='width:2%'></td>
                       <td><?php echo $dados1->sexo ?></td>
                     </tr>
