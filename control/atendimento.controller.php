@@ -82,6 +82,23 @@ class AtendimentoController{
     ConexaoBD::desconecta();
   }
 
+  public function listarPorPaciente($paciente){
+    ConexaoBD::conectar();
+
+    $atendimento = new Atendimento();
+    $atendimento->set('paciente',$paciente);
+
+    $dados = $atendimento->listarPorPaciente();
+
+    if($dados != null){
+      return $dados;
+    }else{
+			return null;
+    }
+
+    ConexaoBD::desconecta();
+  }
+
   public function denteProcedimento($paciente){
     ConexaoBD::conectar();
 
