@@ -17,7 +17,7 @@ $nivel = $_SESSION['nivel'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel=”stylesheet” href=”https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css”>
-    <title>Consultorio XXX</title>
+    <title>Consultorio Dra. Abigail Marinho</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <style type="text/css">
@@ -44,6 +44,10 @@ $nivel = $_SESSION['nivel'];
         if($nivel <= 0){?>
           <a onmousedown="cliquefuncionario()" class="list-group-item list-group-item-action" id="list-funcionario-list" data-bs-toggle="list" href="#list-funcionario" role="tab" aria-controls="list-funcionario"><img src="./img/funcionario1.png" id="funcionario"> <span> Funcionários</span></a>
         <?php } ?>
+        <?php 
+        if($nivel <= 0){?>
+          <a onmousedown="cliquerelatorio()" class="list-group-item list-group-item-action" id="list-funcionario-list" data-bs-toggle="list" href="#list-relatorios" role="tab" aria-controls="list-funcionario"><img src="./img/relatorio1.png" id="relatorio"> <span> Relatórios</span></a>
+        <?php } ?>
         </div>
       </div>
       <div class="col-10">
@@ -63,6 +67,9 @@ $nivel = $_SESSION['nivel'];
           <div class="tab-pane fade" id="list-funcionario" role="tabpanel" aria-labelledby="list-funcionario-list">
             <iframe name="framefuncionario" height="1200" width="100%" src="buscarfuncionario.php"></iframe>
           </div>
+          <div class="tab-pane fade" id="list-relatorios" role="tabpanel" aria-labelledby="list-relatorios-list">
+            <iframe name="framerelatorios" height="1200" width="100%" src="relatorios.php"></iframe>
+          </div>
         </div>
       </div>
     </div>
@@ -78,6 +85,7 @@ $nivel = $_SESSION['nivel'];
         document.getElementById("paciente").src = './img/paciente1.png';
         document.getElementById("procedimento").src = './img/procedimento1.png';
         document.getElementById("funcionario").src = './img/funcionario1.png';
+        document.getElementById("relatorio").src = './img/relatorio1.png';
       }      
       function cliqueagenda(){
         document.getElementById("agenda").src = './img/agenda.png';
@@ -85,6 +93,7 @@ $nivel = $_SESSION['nivel'];
         document.getElementById("paciente").src = './img/paciente1.png';
         document.getElementById("procedimento").src = './img/procedimento1.png';
         document.getElementById("funcionario").src = './img/funcionario1.png';
+        document.getElementById("relatorio").src = './img/relatorio1.png';
       }
       function cliquepaciente(){
         document.getElementById("paciente").src = './img/paciente.png';
@@ -92,6 +101,7 @@ $nivel = $_SESSION['nivel'];
         document.getElementById("inicio").src = './img/home1.png';
         document.getElementById("procedimento").src = './img/procedimento1.png';
         document.getElementById("funcionario").src = './img/funcionario1.png';
+        document.getElementById("relatorio").src = './img/relatorio1.png';
       }
       function cliqueprocedimento(){
         document.getElementById("procedimento").src = './img/procedimento.png';
@@ -99,6 +109,7 @@ $nivel = $_SESSION['nivel'];
         document.getElementById("agenda").src = './img/agenda1.png';
         document.getElementById("inicio").src = './img/home1.png';
         document.getElementById("funcionario").src = './img/funcionario1.png';
+        document.getElementById("relatorio").src = './img/relatorio1.png';
       }
       function cliquefuncionario(){
         document.getElementById("funcionario").src = './img/funcionario.png';
@@ -106,6 +117,15 @@ $nivel = $_SESSION['nivel'];
         document.getElementById("paciente").src = './img/paciente1.png';
         document.getElementById("agenda").src = './img/agenda1.png';
         document.getElementById("inicio").src = './img/home1.png';
+        document.getElementById("relatorio").src = './img/relatorio1.png';
+      }
+      function cliquerelatorio(){
+        document.getElementById("relatorio").src = './img/relatorio.png';
+        document.getElementById("procedimento").src = './img/procedimento1.png';
+        document.getElementById("paciente").src = './img/paciente1.png';
+        document.getElementById("agenda").src = './img/agenda1.png';
+        document.getElementById("inicio").src = './img/home1.png';
+        document.getElementById("funcionario").src = './img/funcionario1.png';
       }
       function atualizarframe(ID){
         var frame = document.getElementById(ID);
