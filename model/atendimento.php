@@ -80,7 +80,21 @@ class Atendimento{
   }
 
   public function denteComProcedimento(){
-    $sql = "SELECT DISTINCT dente FROM atendimento WHERE paciente = '{$this->paciente}' ORDER BY dente";
+    $sql = "SELECT DISTINCT dente FROM atendimento WHERE paciente = '{$this->paciente}' and situacao <> 'REALIZADO' ORDER BY dente";
+
+    $res = ConexaoBD::executar($sql);
+    $lista = null;
+    while($objeto = mysqli_fetch_object($res)){
+      if($objeto != null){
+        $lista[] = $objeto;
+      }
+    }
+    return $lista;
+
+  }
+
+  public function denteComProcedimentoOk(){
+    $sql = "SELECT DISTINCT dente FROM atendimento WHERE paciente = '{$this->paciente}' and situacao = 'REALIZADO' ORDER BY dente";
 
     $res = ConexaoBD::executar($sql);
     $lista = null;

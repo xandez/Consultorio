@@ -44,9 +44,16 @@ $dadosprocedimento = $procedimento->listarProcedimento("", "");
 
 //pega o numero dos dentes que tem procedimento em aberto
 $dentes = new AtendimentoController();
-$listadente = $dentes->denteProcedimento($cpf);
+$listadente = $dentes->denteProcedimento($cpf,'pendente');
 foreach ($listadente as $listadedentes) {
   $arraydentes[] = $listadedentes->dente;
+};
+
+//pega o numero dos dentes que tem procedimento concluido.
+$dentesok = new AtendimentoController();
+$listadeteok = $dentesok->denteProcedimento($cpf,'ok');
+foreach($listadeteok as $listadentesok){
+  $arraydentesok[] = $listadentesok->dente;
 };
 // if(in_array("21",$arraydentes)){
 //   echo "Achou o dente!";
@@ -404,7 +411,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("55", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("55",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -416,7 +425,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("54", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("54",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -428,7 +439,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("53", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("53",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -440,7 +453,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("52", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("52",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -452,7 +467,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("51", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("51",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -464,7 +481,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("61", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("61",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -476,7 +495,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("62", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("62",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -488,7 +509,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("63", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("63",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -500,7 +523,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("64", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("64",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -512,7 +537,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("65", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("65",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -526,7 +553,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("18", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("18",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -538,7 +567,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("17", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("17",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -550,7 +581,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("16", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("16",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -562,7 +595,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("15", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("15",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -574,7 +609,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("14", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("14",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -586,7 +623,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("13", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("13",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -598,7 +637,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("12", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("12",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -610,7 +651,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("11", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("11",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -622,7 +665,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("21", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("21",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -634,7 +679,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("22", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("22",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -646,7 +693,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("23", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("23",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -658,7 +707,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("24", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("24",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -670,7 +721,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("25", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("25",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -682,7 +735,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("26", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("26",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -694,7 +749,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("27", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("27",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -706,7 +763,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("28", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("28",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -723,7 +782,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("48", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("48",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>48
@@ -735,7 +796,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("47", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("47",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>47
@@ -747,7 +810,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("46", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("46",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>46
@@ -759,7 +824,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("45", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("45",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>45
@@ -771,7 +838,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("44", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("44",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>44
@@ -783,7 +852,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("43", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("43",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>43
@@ -795,7 +866,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("42", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("42",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>42
@@ -807,7 +880,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("41", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("41",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>41
@@ -819,7 +894,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("31", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("31",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>31
@@ -831,7 +908,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("32", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("32",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>32
@@ -843,7 +922,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("33", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("33",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>33
@@ -855,7 +936,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("34", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("34",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>34
@@ -867,7 +950,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("35", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("35",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>35
@@ -879,7 +964,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("36", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("36",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>36
@@ -891,7 +978,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("37", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("37",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>37
@@ -903,7 +992,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("38", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("38",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>38
@@ -917,7 +1008,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("85", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("85",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -929,7 +1022,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("84", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("84",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -941,7 +1036,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("83", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("83",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -953,7 +1050,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("82", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("82",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -965,7 +1064,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("81", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("81",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -977,7 +1078,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("71", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("71",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -989,7 +1092,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("72", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("72",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -1001,7 +1106,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("73", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("73",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -1013,7 +1120,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("74", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("74",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>
@@ -1025,7 +1134,9 @@ foreach ($listadente as $listadedentes) {
                       <?php
                       if (in_array("75", $arraydentes)) {
                         echo "<img src='./img/denteppreto.png'>";
-                      } else {
+                      } elseif(in_array("75",$arraydentesok)){
+                        echo "<img src='./img/dentepverde.png'>";
+                      }else{
                         echo "<img src='./img/dentepbranco.png'>";
                       }
                       ?>

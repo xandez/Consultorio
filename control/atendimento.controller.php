@@ -99,14 +99,16 @@ class AtendimentoController{
     ConexaoBD::desconecta();
   }
 
-  public function denteProcedimento($paciente){
+  public function denteProcedimento($paciente,$tipo){
     ConexaoBD::conectar();
 
     $atendimento = new Atendimento();
     $atendimento->set('paciente',$paciente);
-
-    $dados = $atendimento->denteComProcedimento();
-
+    if($tipo == 'pendente'){
+      $dados = $atendimento->denteComProcedimento();
+    }else{
+      $dados = $atendimento->denteComProcedimentoOk();
+    }
     if($dados != null){
       return $dados;
     }else{
