@@ -47,7 +47,7 @@ $lista = $pac->listarDadosPaciente("",$cpf);
           </td>
           <td style='width:1%'></td>
           <td>
-            <input readonly class='form-control btn-sm' name='etrg' minlength="12" maxlength="12" type='text'  onkeypress="$(this).mask('99.999.999-9');" <?php echo "value='".$dados->rg."'"; ?>>
+            <input class='form-control btn-sm' name='etrg' minlength="17" maxlength="17" type='text'  onkeypress="$(this).mask('999.999.999.999-9');" <?php echo "value='".$dados->rg."'"; ?>>
           </td>
           <td style='width:1%'></td>
           <td  colspan="3">
@@ -65,7 +65,7 @@ $lista = $pac->listarDadosPaciente("",$cpf);
         </tr>
         <tr>
           <td>
-            <input class='form-control btn-sm' name='etfone' required minlength="15" maxlength="15" type='text' onkeypress="$(this).mask('(00)00000-0000')" <?php echo "value='".$dados->fone."'"; ?>>
+            <input class='form-control btn-sm' name='etfone' required minlength="14" maxlength="14" type='text' onkeypress="$(this).mask('(00)00000-0000')" <?php echo "value='".$dados->fone."'"; ?>>
           </td>
           <td style='width: 1%'></td>
           <td >
