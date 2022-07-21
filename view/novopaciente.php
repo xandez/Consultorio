@@ -174,7 +174,7 @@ if($_SESSION['nome'] == null){
           </tr>      
           <tr>
             <td>
-              <input type='submit' class='btn btn-success btn-sm' value='Salvar'>
+              <input type='submit' id="btsalvar" class='btn btn-success btn-sm' value='Salvar'>
               <a href='buscarpaciente.php' class='btn btn-danger btn-sm' role='button'>Cancelar</a>
             </td>
             <td style='width:1%'></td>
@@ -190,9 +190,51 @@ if($_SESSION['nome'] == null){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+   <script>
+    //
+    $("[name='etcpf']").focusout(function(){
+      var cpf = $("[name='etcpf']");
+
+      if(cpf.val() == '000.000.000-00'){
+        alert("Preencher com CPF valido!")
+        cpf.val("");
+        cpf.focus();
+      }else{
+        $.ajax({
+          method: "POST",
+          url: "../control/paciente.controller.php?evento=validarCpf",
+          data: {
+            cpfinfo: cpf.val()
+          },
+          success: function(data){
+            alert("chegou aqui")
+            if(data == "Tem"){
+              alert("CPF já cadastrado!");
+              cpf.val("");
+              cpf.focus();
+            }
+          }
+        });
+        alert("chegou em")
+      }
+    });
+
+    //valida campo cpf, evitar zerado
+    $("#btsalvar").click(function(){
+      var cpf = $("[name='etcpf']");
+
+      if(cpf.val() == '000.000.000-00'){
+        alert("Preencher com CPF valido!")
+        cpf.val("");
+      }     
+    })
+   </script>
 
   </body>
   </html>

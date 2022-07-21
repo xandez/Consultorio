@@ -60,6 +60,21 @@ class PacienteController{
 		ConexaoBD::desconecta();
 	}
 
+	public function validarCpf(){
+		ConexaoBD::conectar();
+
+		$paciente = new Paciente();
+		$paciente->set('cpf',$_POST['cpfinfo']);
+
+		$dados = $paciente->buscarPaciente();
+		if($dados != null){
+			echo "Tem";
+		}else{
+			echo "Livre";
+		}
+		ConexaoBD::desconecta();
+	}
+
 	public function editarPaciente(){
 		ConexaoBD::conectar();
 

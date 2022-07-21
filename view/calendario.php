@@ -58,7 +58,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
         var calendar = new FullCalendar.Calendar(calendarEl, {
         	aspectRatio: 2.14,
         	slotMinTime: '08:00:00',
-          slotMaxTime: '18:00:00',
+          slotMaxTime: '20:00:00',
           hiddenDays: [0],
           firstDay: 1,
         	themeSystem: 'bootstrap',
@@ -70,7 +70,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
           scrollTime: '08:00:00',
           nowIndicator: true,
 					allDaySlot: false,
-					height: 593,
+					height: 693,
 		      headerToolbar: {
 		        left: 'prev,next today',
 		        center: 'title',
