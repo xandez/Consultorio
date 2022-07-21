@@ -33,7 +33,7 @@ if($_SESSION['nome'] == null){
             </td>
             <td style='width:1%'></td>
             <td>
-              <input class='form-control btn-sm' name='etrg' minlength="12" maxlength="12" type='text'  onkeypress="$(this).mask('99.999.999-9');">
+              <input class='form-control btn-sm' required name='etrg' minlength="17" maxlength="17" type='text'  onkeypress="$(this).mask('999.999.999.999-9');">
             </td>
             <td style='width:1%'></td>
             <td  colspan="3">
@@ -55,16 +55,16 @@ if($_SESSION['nome'] == null){
             </td>
             <td style='width: 1%'></td>
             <td >
-              <input class='form-control btn-sm' name = 'etidade' type='number'>
+              <input class='form-control btn-sm' required name = 'etidade' type='number'>
             </td>
             <td style='width: 1%'></td>
             <td>
-              <input class='form-control btn-sm' name = 'etdatanasc' type='date'>
+              <input class='form-control btn-sm' name = 'etdatanasc' required type='date'>
             </td>
             <td style='width: 1%'></td>
             <td style='width: 25%'>
-              <select class ='form-control select btn-sm' name ='etsexo'>
-                <option value = '-'>Selecionar...</option>
+              <select class ='form-control select btn-sm' name ='etsexo' required>
+                <option value = ''>Selecionar...</option>
                 <option value = 'Masculino'>Masculino</option>
                 <option value = 'Feminino'>Feminino</option>
                 <option value = 'Outros'>Outros</option>
@@ -82,7 +82,7 @@ if($_SESSION['nome'] == null){
           </tr>
           <tr>
             <td>
-              <input class='form-control btn-sm' name = 'etendereco' type='text'>
+              <input class='form-control btn-sm' name = 'etendereco' required type='text'>
             </td>
             <td style='width: 1%'></td>
             <td>
@@ -143,7 +143,7 @@ if($_SESSION['nome'] == null){
             </td>
             <td style='width:1%' colspan=""></td>
             <td>
-              <input class='form-control btn-sm' name='etprofissao' required type='text'>
+              <input class='form-control btn-sm' name='etprofissao' type='text'>
             </td>
             <td style='width:1%' colspan=""></td>
             <td>
@@ -151,7 +151,7 @@ if($_SESSION['nome'] == null){
             </td>
             <td style='width:1%' colspan=""></td>
             <td>
-              <input class='form-control btn-sm' name='etindicacao' required type='text'>
+              <input class='form-control btn-sm' name='etindicacao' type='text'>
             </td>
           </tr>
           <tr>
@@ -161,7 +161,7 @@ if($_SESSION['nome'] == null){
           </tr>
           <tr>
             <td colspan="7">
-              <textarea class='form-control btn-sm' name='etobs' required rows="3"></textarea>
+              <textarea class='form-control btn-sm' name='etobs' rows="3"></textarea>
             </td>
             <td>
               <input type="hidden" name="etdatacadastro"<?php echo "value='".date('Y-m-d')."'"; ?> >
