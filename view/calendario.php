@@ -103,7 +103,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 				  		}
 				  		echo ']';
 					?>
-			 		});
+			 	});
         calendar.render();
       });
 
@@ -160,6 +160,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 				<td>
 					<input class='form-control btn-sm' name='situacao' type='hidden' >
 					<input id="etfuncionario" type="hidden" name="etfuncionario"<?php echo "value='".$dentista."'"; ?> >
+					<input id="etusuario" type="hidden" name="etusuario"<?php echo "value='".$_SESSION["nome"]."'"; ?> >
 					<input type="hidden" name="etprotocolo" value="0" >
 				</td>
 			</tr>
@@ -184,6 +185,7 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 				var inicio = $("#etinicio").val();
 				var fim = $("#etfim").val();
 				var tipo = $("#ettipo option:selected").val();		
+				var usuario = $("#etusuario").val();		
 				if(verificarDatas()){
 					$.ajax({
 						method: "POST",
@@ -195,7 +197,8 @@ $listapaciente = $paciente->listarDadosPaciente("","");
 							ettipo: tipo,
 							etpaciente: paciente,
 							etprotocolo: '0',
-							etstatus:'Ativo'
+							etstatus:'Ativo',
+							etusuario: usuario
 						},
 						success: function(retorno){
 							alert('Agendado!');

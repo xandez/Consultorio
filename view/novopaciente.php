@@ -173,6 +173,7 @@ if ($_SESSION['nome'] == null) {
           </td>
           <td>
             <input type="hidden" name="etdatacadastro" <?php echo "value='" . date('Y-m-d') . "'"; ?>>
+            <input type="hidden" name="etusuariocad" <?php echo "value='" . $_SESSION['nome'] . "'"; ?>>
           </td>
         </tr>
         <tr>

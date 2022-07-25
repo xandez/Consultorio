@@ -288,6 +288,7 @@ foreach($listadeteok as $listadentesok){
               <td>
                 <input class='form-control' name='situacao' type='hidden'>
                 <input id="etid" type="hidden" name="etid" value="<?php echo $dados->id ?>">
+                <input id="etusuario" type="hidden" name="etusuario" value="<?php echo $_SESSION["nome"] ?>">
               </td>
             </tr>
             <tr class="acoes">
@@ -1277,6 +1278,7 @@ foreach($listadeteok as $listadentesok){
       var fim = $("#etfim").val();
       var tipo = $("#ettipo option:selected").val();
       var status = $("#etstatus option:selected").val();
+      var usuario = $("#etusuario").val();
       if (verificarDatas()) {
         $.ajax({
           method: "POST",
@@ -1286,7 +1288,8 @@ foreach($listadeteok as $listadentesok){
             etinicio: inicio,
             etfim: fim,
             ettipo: tipo,
-            etstatus: status
+            etstatus: status,
+            etusuario: usuario
           },
           success: function() {
             alert('Agenda atualizada!');

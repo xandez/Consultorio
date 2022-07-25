@@ -30,7 +30,8 @@ class PacienteController{
 		$paciente->set('indicacao',mb_strtoupper($_POST['etindicacao']),'UTF-8');
 		$paciente->set('obs',mb_strtoupper($_POST['etobs']),'UTF-8');
 		$paciente->set('datacadastro',$_POST['etdatacadastro']);
-
+		$paciente->set('usuariocad',mb_strtoupper($_POST['etusuariocad']),'UTF-8');
+		
 		if($paciente->cadastrarPaciente()){
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
 			header("refresh:1;url=../view/novopaciente.php");
@@ -111,6 +112,7 @@ class PacienteController{
 		$paciente->set('email',mb_strtoupper($_POST['etemail']),'UTF-8');
 		$paciente->set('indicacao',mb_strtoupper($_POST['etindicacao']),'UTF-8');
 		$paciente->set('obs',mb_strtoupper($_POST['etobs']),'UTF-8');
+		$paciente->set('usuarioedit',mb_strtoupper($_POST['etusuarioedit']),'UTF-8');
 
 		if ($paciente->editarPaciente()) {
 			echo "<script>alert('Operação realizada com sucesso.');</script>";

@@ -10,6 +10,7 @@ class Agenda{
 	private $paciente;
 	private $protocolo;
 	private $status;
+	private $usuario;
 
 
 	public function set($prop,$valor){
@@ -22,7 +23,7 @@ class Agenda{
 
 	public function cadastrarAgenda(){
 		
-		$sql = "insert into agenda (funcionario,inicio,fim,tipo,paciente,protocolo,status) values ('{$this->funcionario}','{$this->inicio}','{$this->fim}','{$this->tipo}','{$this->paciente}','{$this->protocolo}','{$this->status}')";			
+		$sql = "insert into agenda (funcionario,inicio,fim,tipo,paciente,protocolo,status,usuario) values ('{$this->funcionario}','{$this->inicio}','{$this->fim}','{$this->tipo}','{$this->paciente}','{$this->protocolo}','{$this->status}','{$this->usuario}')";			
 		if (ConexaoBD::executar($sql) !== null) {
 			return true;
 		}else{
@@ -62,7 +63,8 @@ class Agenda{
 		inicio = '{$this->inicio}',
 		fim = '{$this->fim}',
 		tipo = '{$this->tipo}',
-		status = '{$this->status}'
+		status = '{$this->status}',
+		usuario = '{$this->usuario}'
 		WHERE id = '{$this->id}'";
 
 		if(ConexaoBD::executar($sql) !== null){

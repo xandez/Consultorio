@@ -8,6 +8,7 @@ class Pagamento
   private $data;
   private $datalanc;
   private $tipo;
+  private $usuariocad;
 
   private $datainicio;
   private $datafim;
@@ -24,7 +25,7 @@ class Pagamento
 
   public function cadastrar()
   {
-    $sql = "insert into pagamento (cpf,valor,datalanc,data,tipo) values ('{$this->cpf}','{$this->valor}','{$this->datalanc}','{$this->data}','{$this->tipo}')";
+    $sql = "insert into pagamento (cpf,valor,datalanc,data,tipo,usuario) values ('{$this->cpf}','{$this->valor}','{$this->datalanc}','{$this->data}','{$this->tipo}','{$this->usuariocad}')";
     if (ConexaoBD::executar($sql) === true) {
       return true;
     } else {

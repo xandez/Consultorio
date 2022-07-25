@@ -20,6 +20,8 @@ class Paciente{
 	private $indicacao;
 	private $obs;
 	private $datacadastro;
+	private $usuariocad;
+	private $usuarioedit;
 
 
 	public function set($prop,$valor){
@@ -32,7 +34,7 @@ class Paciente{
 
 	public function cadastrarPaciente(){
 		
-		$sql = "insert into paciente (nome,fone,idade,datanasc,sexo,endereco,cpf,rg,bairro,cidade,estado,civil,profissao,email,indicacao,obs,datacadastro) values ('{$this->nome}','{$this->fone}','{$this->idade}','{$this->datanasc}','{$this->sexo}','{$this->endereco}','{$this->cpf}','{$this->rg}','{$this->bairro}','{$this->cidade}','{$this->estado}','{$this->civil}','{$this->profissao}','{$this->email}','{$this->indicacao}','{$this->obs}','{$this->datacadastro}')";			
+		$sql = "insert into paciente (nome,fone,idade,datanasc,sexo,endereco,cpf,rg,bairro,cidade,estado,civil,profissao,email,indicacao,obs,datacadastro,usuariocad,usuarioedit) values ('{$this->nome}','{$this->fone}','{$this->idade}','{$this->datanasc}','{$this->sexo}','{$this->endereco}','{$this->cpf}','{$this->rg}','{$this->bairro}','{$this->cidade}','{$this->estado}','{$this->civil}','{$this->profissao}','{$this->email}','{$this->indicacao}','{$this->obs}','{$this->datacadastro}','{$this->usuariocad}','{$this->usuarioedit}')";			
 		if (ConexaoBD::executar($sql) !== null) {
 			return true;
 		}else{
@@ -57,7 +59,8 @@ class Paciente{
 		profissao = '{$this->profissao}',
 		email = '{$this->email}',
 		indicacao = '{$this->indicacao}',
-		obs = '{$this->obs}' 
+		obs = '{$this->obs}',
+		usuarioedit = '{$this->usuarioedit}'
 		WHERE cpf = '{$this->cpf}'";
 		if (ConexaoBD::executar($sql) !== null) {
 			return true;

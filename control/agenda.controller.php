@@ -20,6 +20,7 @@ class AgendaController{
 		$agenda->set('paciente',$_POST['etpaciente']);
 		$agenda->set('protocolo',$_POST['etprotocolo']);
 		$agenda->set('status',mb_strtoupper($_POST['etstatus']),'UTF-8');
+		$agenda->set('usuario',mb_strtoupper($_POST['etusuario']),'UTF-8');
 
 		if ($agenda->cadastrarAgenda()) {
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
@@ -78,6 +79,7 @@ class AgendaController{
 		$agenda->set('fim',$_POST['etfim']);
 		$agenda->set('tipo',mb_strtoupper($_POST['ettipo']),'UTF-8');
 		$agenda->set('status',mb_strtoupper($_POST['etstatus']),'UTF-8');
+		$agenda->set('usuario',mb_strtoupper($_POST['etusuario']),'UTF-8');
 
 		if($agenda->editar()){
 			return true;

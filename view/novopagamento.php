@@ -77,6 +77,7 @@ foreach ($saldopaciente as $dados1){
           <td style='width:1%'></td>
           <td>
             <input type="hidden" name="etdata" <?php echo "value='".date('Y-m-d H:i:s')."'"; ?>>
+            <input type="hidden" name="etusuario" <?php echo "value='".$_SESSION['nome']."'"; ?>>
             <input type='submit' class='btn btn-success btn-sm' value='Lançar'>
             <a href='buscarpaciente.php' class='btn btn-danger btn-sm' role='button'>Cancelar</a>
           </td>
