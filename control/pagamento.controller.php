@@ -23,11 +23,11 @@ class PagamentoController
     $pagamento->set('usuariocad', mb_strtoupper($_POST['etusuario']), 'UTF-8');
 
     if ($pagamento->cadastrar()) {
+      header("refresh:1;url=../view/novopagamento.php?etcpf=" . $_POST['etcpf']);
       echo "<script>alert('Operação realizada com sucesso.');</script>";
-      header("refresh:1;url=../view/novopagamento.php?etcpf=" . $_POST['etcpf']);
     } else {
-      echo "<script>alert('Erro ao cadastrar!');</script>";
       header("refresh:1;url=../view/novopagamento.php?etcpf=" . $_POST['etcpf']);
+      echo "<script>alert('Erro ao cadastrar!');</script>";
     }
 
     ConexaoBD::desconecta();

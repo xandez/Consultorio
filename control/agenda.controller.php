@@ -23,11 +23,11 @@ class AgendaController{
 		$agenda->set('usuario',mb_strtoupper($_POST['etusuario']),'UTF-8');
 
 		if ($agenda->cadastrarAgenda()) {
+			header("refresh:1;url=../view/selecaoDentista.php");
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
-			header("refresh:1;url=../view/selecaoDentista.php");
 		}else{			
-			echo "<script>alert('Erro ao cadastrar!');</script>";
 			header("refresh:1;url=../view/selecaoDentista.php");
+			echo "<script>alert('Erro ao cadastrar!');</script>";
 		}
 
 		ConexaoBD::desconecta();

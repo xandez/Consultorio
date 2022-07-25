@@ -28,11 +28,11 @@ class FuncionarioController{
 		
 
 		if($funcionaio->cadastrarFuncionario()){
-			echo "<script>alert('Operação realizada com sucesso.');</script>";
 			header("refresh:1;url=../view/buscarfuncionario.php");
+			echo "<script>alert('Operação realizada com sucesso.');</script>";
 		}else{
-			echo "<script>alert('Erro ao cadastrar!');</script>";
 			header("refresh:1;url=../view/novofuncionario.php");
+			echo "<script>alert('Erro ao cadastrar!');</script>";
 		}
 
 		ConexaoBD::desconecta();
@@ -76,11 +76,11 @@ class FuncionarioController{
 		}
 
 		if ($funcionaio->editarFuncionario()) {
+			header("refresh:1;url=../view/buscarfuncionario.php");
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
-			header("refresh:1;url=../view/buscarfuncionario.php");
 		}else{
-			echo "<script>alert('Erro ao cadastrar!');</script>";
 			header("refresh:1;url=../view/buscarfuncionario.php");
+			echo "<script>alert('Erro ao cadastrar!');</script>";
 		}
 
 		ConexaoBD::desconecta();

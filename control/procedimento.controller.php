@@ -22,11 +22,11 @@ class ProcedimentoController{
 		$procedimento->set('custo',str_replace(',','.',str_replace('.','',$_POST['etcusto'])));
 
 		if ($procedimento->cadastrarProcedimento()) {
+			header("refresh:1;url=../view/novoprocedimento.php");
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
-			header("refresh:1;url=../view/novoprocedimento.php");
 		}else{
-			echo "<script>alert('Erro ao cadastrar!');</script>";
 			header("refresh:1;url=../view/novoprocedimento.php");
+			echo "<script>alert('Erro ao cadastrar!');</script>";
 		}
 		ConexaoBD::desconecta();
 	}
@@ -63,11 +63,11 @@ class ProcedimentoController{
 		$procedimento->set('custo',str_replace(',','.',str_replace('.','',$_POST['etcusto'])));
 
 		if($procedimento->editarProcedimento()){
+			header("refresh:1;url=../view/buscarprocedimento.php");
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
-			header("refresh:1;url=../view/buscarprocedimento.php");
 		}else{
-			echo "<script>alert('Erro ao cadastrar!');</script>";
 			header("refresh:1;url=../view/buscarprocedimento.php");
+			echo "<script>alert('Erro ao cadastrar!');</script>";
 		}
 
 		ConexaoBD::desconecta();

@@ -33,11 +33,11 @@ class PacienteController{
 		$paciente->set('usuariocad',mb_strtoupper($_POST['etusuariocad']),'UTF-8');
 		
 		if($paciente->cadastrarPaciente()){
+			header("refresh:1;url=../view/novopaciente.php");
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
-			header("refresh:1;url=../view/novopaciente.php");
 		}else{
-			echo "<script>alert('Erro ao cadastrar!');</script>";
 			header("refresh:1;url=../view/novopaciente.php");
+			echo "<script>alert('Erro ao cadastrar!');</script>";
 		}
 
 		ConexaoBD::desconecta();
@@ -115,11 +115,11 @@ class PacienteController{
 		$paciente->set('usuarioedit',mb_strtoupper($_POST['etusuarioedit']),'UTF-8');
 
 		if ($paciente->editarPaciente()) {
+			header("refresh:1;url=../view/buscarpaciente.php");
 			echo "<script>alert('Operação realizada com sucesso.');</script>";
-			header("refresh:1;url=../view/buscarpaciente.php");
 		}else{
-			echo "<script>alert('Erro ao cadastrar!');</script>";
 			header("refresh:1;url=../view/buscarpaciente.php");
+			echo "<script>alert('Erro ao cadastrar!');</script>";
 		}
 
 		ConexaoBD::desconecta();

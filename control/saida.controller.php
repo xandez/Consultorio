@@ -31,11 +31,11 @@ class SaidaController
     // echo "<script>alert('".$saidas->get('datacompetencia')."');</script>";
 
     if ($saidas->cadastrar()) {
+      header("refresh:1;url=../view/saida.php");
       echo "<script>alert('Operação realizada com sucesso.');</script>";
-      header("refresh:1;url=../view/saida.php");
     }else{
-      echo "<script>alert('Erro ao cadastrar!');</script>";
       header("refresh:1;url=../view/saida.php");
+      echo "<script>alert('Erro ao cadastrar!');</script>";
     }
 
     ConexaoBD::desconecta();
