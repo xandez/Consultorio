@@ -34,7 +34,7 @@ $lista = $pac->listarAniversario();
 
     .aniversario {
       position: absolute;
-      display: flex;
+      /* display: flex; */
       right: 50px;
       /* border-radius: 0px 0px 10px 10px; */
       border-right: 1px solid #7B193F;
@@ -56,6 +56,7 @@ $lista = $pac->listarAniversario();
 
     .esconder {
       opacity: 0;
+      z-index: -1;
     }
 
     .niverdia {
