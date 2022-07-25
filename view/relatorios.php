@@ -39,15 +39,35 @@ if($_SESSION['nome'] == null || $_SESSION['nivel'] > 0){
 
 <body>
   <div class="accordion" id="accordionExample">
+    <!-- Item Pagamentos -->
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          1. Pagamentos
+          <b>1. Pagamentos</b> 
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <div class="accordion-body campos">
           <form class="campos" action="relatoriopagamento.php" method="POST">
+            <label class="form-label">Data Início: </label>
+            <input type="date" class='form-control btn-sm' name="datainicio" id="datainicio">
+            <label class="form-label">Data Fim: </label>
+            <input type="date" class='form-control btn-sm' name="datafim" id="datafim">
+            <input type="submit" class="btn btn-success btn-sm" value="Gerar">
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Item Saidas -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingdois">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsedois" aria-expanded="false" aria-controls="collapsedois">
+          <b>2. Saidas</b>  
+        </button>
+      </h2>
+      <div id="collapsedois" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body campos">
+          <form class="campos" action="relatoriosaidas.php" method="POST">
             <label class="form-label">Data Início: </label>
             <input type="date" class='form-control btn-sm' name="datainicio" id="datainicio">
             <label class="form-label">Data Fim: </label>

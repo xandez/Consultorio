@@ -155,6 +155,10 @@ $lista = $pac->listarAniversario();
         <?php } ?>
         <?php
         if ($nivel <= 0) { ?>
+          <a onmousedown="cliquesaidas()" class="list-group-item list-group-item-action" id="list-saidas-list" data-bs-toggle="list" href="#list-saidas" role="tab" aria-controls="list-saidas"><img src="./img/carteira1.png" id="saidas"> <span> Saídas</span></a>
+        <?php } ?>
+        <?php
+        if ($nivel <= 0) { ?>
           <a onmousedown="cliquerelatorio()" class="list-group-item list-group-item-action" id="list-funcionario-list" data-bs-toggle="list" href="#list-relatorios" role="tab" aria-controls="list-funcionario"><img src="./img/relatorio1.png" id="relatorio"> <span> Relatórios</span></a>
         <?php } ?>
       </div>
@@ -176,6 +180,9 @@ $lista = $pac->listarAniversario();
         <div class="tab-pane fade" id="list-funcionario" role="tabpanel" aria-labelledby="list-funcionario-list">
           <iframe name="framefuncionario" height="1200" width="100%" src="buscarfuncionario.php"></iframe>
         </div>
+        <div class="tab-pane fade" id="list-saidas" role="tabpanel" aria-labelledby="list-saidas-list">
+          <iframe name="framesaidas" height="1200" width="100%" src="saida.php"></iframe>
+        </div>
         <div class="tab-pane fade" id="list-relatorios" role="tabpanel" aria-labelledby="list-relatorios-list">
           <iframe name="framerelatorios" height="1200" width="100%" src="relatorios.php"></iframe>
         </div>
@@ -196,6 +203,7 @@ $lista = $pac->listarAniversario();
       document.getElementById("procedimento").src = './img/procedimento1.png';
       document.getElementById("funcionario").src = './img/funcionario1.png';
       document.getElementById("relatorio").src = './img/relatorio1.png';
+      document.getElementById("saidas").src = './img/carteira1.png';
     }
 
     function cliqueagenda() {
@@ -205,6 +213,7 @@ $lista = $pac->listarAniversario();
       document.getElementById("procedimento").src = './img/procedimento1.png';
       document.getElementById("funcionario").src = './img/funcionario1.png';
       document.getElementById("relatorio").src = './img/relatorio1.png';
+      document.getElementById("saidas").src = './img/carteira1.png';
     }
 
     function cliquepaciente() {
@@ -214,6 +223,7 @@ $lista = $pac->listarAniversario();
       document.getElementById("procedimento").src = './img/procedimento1.png';
       document.getElementById("funcionario").src = './img/funcionario1.png';
       document.getElementById("relatorio").src = './img/relatorio1.png';
+      document.getElementById("saidas").src = './img/carteira1.png';
     }
 
     function cliqueprocedimento() {
@@ -223,10 +233,22 @@ $lista = $pac->listarAniversario();
       document.getElementById("inicio").src = './img/home1.png';
       document.getElementById("funcionario").src = './img/funcionario1.png';
       document.getElementById("relatorio").src = './img/relatorio1.png';
+      document.getElementById("saidas").src = './img/carteira1.png';
     }
 
     function cliquefuncionario() {
       document.getElementById("funcionario").src = './img/funcionario.png';
+      document.getElementById("procedimento").src = './img/procedimento1.png';
+      document.getElementById("paciente").src = './img/paciente1.png';
+      document.getElementById("agenda").src = './img/agenda1.png';
+      document.getElementById("inicio").src = './img/home1.png';
+      document.getElementById("relatorio").src = './img/relatorio1.png';
+      document.getElementById("saidas").src = './img/carteira1.png';
+    }
+
+    function cliquesaidas() {
+      document.getElementById("saidas").src = './img/carteira.png';
+      document.getElementById("funcionario").src = './img/funcionario1.png';
       document.getElementById("procedimento").src = './img/procedimento1.png';
       document.getElementById("paciente").src = './img/paciente1.png';
       document.getElementById("agenda").src = './img/agenda1.png';
@@ -241,6 +263,7 @@ $lista = $pac->listarAniversario();
       document.getElementById("agenda").src = './img/agenda1.png';
       document.getElementById("inicio").src = './img/home1.png';
       document.getElementById("funcionario").src = './img/funcionario1.png';
+      document.getElementById("saidas").src = './img/carteira1.png';
     }
 
     function atualizarframe(ID) {
