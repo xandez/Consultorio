@@ -66,6 +66,20 @@ class Paciente{
 		}
 	}
 
+	public function listarAniversariante(){
+		$sql = "SELECT paciente.nome, paciente.datanasc, month(paciente.datanasc) as mes FROM paciente WHERE month(paciente.datanasc) = month(CURRENT_DATE()) order by Day(paciente.datanasc) ASC";
+		
+		$res = ConexaoBD::executar($sql);
+			$lista = null;
+			while ($objeto = mysqli_fetch_object($res)){
+				if($objeto != null){
+					$lista[] = $objeto;
+				}
+			}
+
+			return $lista;
+	} 
+
 	public function buscarPaciente(){
 		if ($this->nome == null && $this->cpf == null) {
 			$sql = "SELECT * FROM paciente order by nome";

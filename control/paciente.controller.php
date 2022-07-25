@@ -60,6 +60,22 @@ class PacienteController{
 		ConexaoBD::desconecta();
 	}
 
+	public function listarAniversario(){
+		ConexaoBD::conectar();
+
+		$paciente = new Paciente();
+		
+		$dados = $paciente->listarAniversariante();
+
+		if($dados != null){
+			return $dados;
+		}else{
+			$msg = 'não tem dados';
+			return $msg;
+		}
+		ConexaoBD::desconecta();
+	}
+
 	public function validarCpf(){
 		ConexaoBD::conectar();
 
